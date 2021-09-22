@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A576D26FB721E00FD8647 /* AppDelegate.swift */; };
+		B54A577026FB721E00FD8647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A576F26FB721E00FD8647 /* SceneDelegate.swift */; };
+		B54A577226FB721E00FD8647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A577126FB721E00FD8647 /* ViewController.swift */; };
+		B54A577526FB721E00FD8647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54A577326FB721E00FD8647 /* Main.storyboard */; };
+		B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */; };
+		B54A577A26FB721E00FD8647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A577926FB721E00FD8647 /* Assets.xcassets */; };
+		B54A577D26FB721E00FD8647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */; };
+		B54A578826FB721E00FD8647 /* GretelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A578726FB721E00FD8647 /* GretelTests.swift */; };
+		B54A579326FB721E00FD8647 /* GretelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A579226FB721E00FD8647 /* GretelUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B54A578426FB721E00FD8647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54A576226FB721E00FD8647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54A576926FB721E00FD8647;
+			remoteInfo = Gretel;
+		};
+		B54A578F26FB721E00FD8647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54A576226FB721E00FD8647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54A576926FB721E00FD8647;
+			remoteInfo = Gretel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B54A576A26FB721E00FD8647 /* Gretel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gretel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54A576D26FB721E00FD8647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B54A576F26FB721E00FD8647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B54A577126FB721E00FD8647 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B54A577426FB721E00FD8647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B54A577726FB721E00FD8647 /* Gretel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gretel.xcdatamodel; sourceTree = "<group>"; };
+		B54A577926FB721E00FD8647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B54A577C26FB721E00FD8647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B54A577E26FB721E00FD8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54A578326FB721E00FD8647 /* GretelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GretelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54A578726FB721E00FD8647 /* GretelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GretelTests.swift; sourceTree = "<group>"; };
+		B54A578926FB721E00FD8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54A578E26FB721E00FD8647 /* GretelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GretelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54A579226FB721E00FD8647 /* GretelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GretelUITests.swift; sourceTree = "<group>"; };
+		B54A579426FB721E00FD8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B54A576726FB721E00FD8647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A578026FB721E00FD8647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A578B26FB721E00FD8647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B54A576126FB721E00FD8647 = {
+			isa = PBXGroup;
+			children = (
+				B54A576C26FB721E00FD8647 /* Gretel */,
+				B54A578626FB721E00FD8647 /* GretelTests */,
+				B54A579126FB721E00FD8647 /* GretelUITests */,
+				B54A576B26FB721E00FD8647 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B54A576B26FB721E00FD8647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B54A576A26FB721E00FD8647 /* Gretel.app */,
+				B54A578326FB721E00FD8647 /* GretelTests.xctest */,
+				B54A578E26FB721E00FD8647 /* GretelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B54A576C26FB721E00FD8647 /* Gretel */ = {
+			isa = PBXGroup;
+			children = (
+				B54A576D26FB721E00FD8647 /* AppDelegate.swift */,
+				B54A576F26FB721E00FD8647 /* SceneDelegate.swift */,
+				B54A577126FB721E00FD8647 /* ViewController.swift */,
+				B54A577326FB721E00FD8647 /* Main.storyboard */,
+				B54A577926FB721E00FD8647 /* Assets.xcassets */,
+				B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */,
+				B54A577E26FB721E00FD8647 /* Info.plist */,
+				B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */,
+			);
+			path = Gretel;
+			sourceTree = "<group>";
+		};
+		B54A578626FB721E00FD8647 /* GretelTests */ = {
+			isa = PBXGroup;
+			children = (
+				B54A578726FB721E00FD8647 /* GretelTests.swift */,
+				B54A578926FB721E00FD8647 /* Info.plist */,
+			);
+			path = GretelTests;
+			sourceTree = "<group>";
+		};
+		B54A579126FB721E00FD8647 /* GretelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B54A579226FB721E00FD8647 /* GretelUITests.swift */,
+				B54A579426FB721E00FD8647 /* Info.plist */,
+			);
+			path = GretelUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B54A576926FB721E00FD8647 /* Gretel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B54A579726FB721E00FD8647 /* Build configuration list for PBXNativeTarget "Gretel" */;
+			buildPhases = (
+				B54A576626FB721E00FD8647 /* Sources */,
+				B54A576726FB721E00FD8647 /* Frameworks */,
+				B54A576826FB721E00FD8647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gretel;
+			productName = Gretel;
+			productReference = B54A576A26FB721E00FD8647 /* Gretel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B54A578226FB721E00FD8647 /* GretelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B54A579A26FB721E00FD8647 /* Build configuration list for PBXNativeTarget "GretelTests" */;
+			buildPhases = (
+				B54A577F26FB721E00FD8647 /* Sources */,
+				B54A578026FB721E00FD8647 /* Frameworks */,
+				B54A578126FB721E00FD8647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B54A578526FB721E00FD8647 /* PBXTargetDependency */,
+			);
+			name = GretelTests;
+			productName = GretelTests;
+			productReference = B54A578326FB721E00FD8647 /* GretelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B54A578D26FB721E00FD8647 /* GretelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B54A579D26FB721E00FD8647 /* Build configuration list for PBXNativeTarget "GretelUITests" */;
+			buildPhases = (
+				B54A578A26FB721E00FD8647 /* Sources */,
+				B54A578B26FB721E00FD8647 /* Frameworks */,
+				B54A578C26FB721E00FD8647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B54A579026FB721E00FD8647 /* PBXTargetDependency */,
+			);
+			name = GretelUITests;
+			productName = GretelUITests;
+			productReference = B54A578E26FB721E00FD8647 /* GretelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B54A576226FB721E00FD8647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					B54A576926FB721E00FD8647 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					B54A578226FB721E00FD8647 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = B54A576926FB721E00FD8647;
+					};
+					B54A578D26FB721E00FD8647 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = B54A576926FB721E00FD8647;
+					};
+				};
+			};
+			buildConfigurationList = B54A576526FB721E00FD8647 /* Build configuration list for PBXProject "Gretel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B54A576126FB721E00FD8647;
+			productRefGroup = B54A576B26FB721E00FD8647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B54A576926FB721E00FD8647 /* Gretel */,
+				B54A578226FB721E00FD8647 /* GretelTests */,
+				B54A578D26FB721E00FD8647 /* GretelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B54A576826FB721E00FD8647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A577D26FB721E00FD8647 /* LaunchScreen.storyboard in Resources */,
+				B54A577A26FB721E00FD8647 /* Assets.xcassets in Resources */,
+				B54A577526FB721E00FD8647 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A578126FB721E00FD8647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A578C26FB721E00FD8647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B54A576626FB721E00FD8647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A577226FB721E00FD8647 /* ViewController.swift in Sources */,
+				B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */,
+				B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */,
+				B54A577026FB721E00FD8647 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A577F26FB721E00FD8647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A578826FB721E00FD8647 /* GretelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A578A26FB721E00FD8647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A579326FB721E00FD8647 /* GretelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B54A578526FB721E00FD8647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54A576926FB721E00FD8647 /* Gretel */;
+			targetProxy = B54A578426FB721E00FD8647 /* PBXContainerItemProxy */;
+		};
+		B54A579026FB721E00FD8647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54A576926FB721E00FD8647 /* Gretel */;
+			targetProxy = B54A578F26FB721E00FD8647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B54A577326FB721E00FD8647 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B54A577426FB721E00FD8647 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B54A577C26FB721E00FD8647 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B54A579526FB721E00FD8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B54A579626FB721E00FD8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B54A579826FB721E00FD8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = Gretel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.Gretel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B54A579926FB721E00FD8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = Gretel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.Gretel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B54A579B26FB721E00FD8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = GretelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.GretelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gretel.app/Gretel";
+			};
+			name = Debug;
+		};
+		B54A579C26FB721E00FD8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = GretelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.GretelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gretel.app/Gretel";
+			};
+			name = Release;
+		};
+		B54A579E26FB721E00FD8647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = GretelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.GretelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gretel;
+			};
+			name = Debug;
+		};
+		B54A579F26FB721E00FD8647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARU7K8KJKJ;
+				INFOPLIST_FILE = GretelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eightythreeapps.GretelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gretel;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B54A576526FB721E00FD8647 /* Build configuration list for PBXProject "Gretel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54A579526FB721E00FD8647 /* Debug */,
+				B54A579626FB721E00FD8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54A579726FB721E00FD8647 /* Build configuration list for PBXNativeTarget "Gretel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54A579826FB721E00FD8647 /* Debug */,
+				B54A579926FB721E00FD8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54A579A26FB721E00FD8647 /* Build configuration list for PBXNativeTarget "GretelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54A579B26FB721E00FD8647 /* Debug */,
+				B54A579C26FB721E00FD8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54A579D26FB721E00FD8647 /* Build configuration list for PBXNativeTarget "GretelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54A579E26FB721E00FD8647 /* Debug */,
+				B54A579F26FB721E00FD8647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B54A577726FB721E00FD8647 /* Gretel.xcdatamodel */,
+			);
+			currentVersion = B54A577726FB721E00FD8647 /* Gretel.xcdatamodel */;
+			path = Gretel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B54A576226FB721E00FD8647 /* Project object */;
+}
