@@ -37,17 +37,13 @@ class TrackListViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tableView.reloadData()
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
+        
     }
-    
-}
-
-private extension TrackListViewController {
-    
-//    func track(for indexPath:IndexPath) -> Track? {
-//        var track:Track = nil//self.tracks[indexPath.row]
-//        return track
-//    }
     
 }
 
@@ -55,27 +51,38 @@ extension TrackListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //let track = self.track(for: indexPath)
+        let track = self.fetchedResultsController.object(at: indexPath)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        //cell.textLabel?.text = track.name
-        //cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
+        cell.textLabel?.text = track.name
+        cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
         
         return cell
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        
         return 0
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            return currentSection.numberOfObjects
+        }
+        
+        return 0
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let track = self.track(for: indexPath)
-//        self.coordinator.displayTrackDetail(track: track)
+        let track = self.fetchedResultsController.object(at: indexPath)
+        self.coordinator.displayTrackDetail(track: track)
     }
     
 }
