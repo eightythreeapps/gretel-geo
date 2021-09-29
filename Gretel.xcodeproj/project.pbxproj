@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F770226FE229500E149EF /* TrackDataProvider.swift */; };
+		B52F770626FE275000E149EF /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F770526FE275000E149EF /* TrackListViewController.swift */; };
 		B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A576D26FB721E00FD8647 /* AppDelegate.swift */; };
 		B54A577026FB721E00FD8647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A576F26FB721E00FD8647 /* SceneDelegate.swift */; };
-		B54A577226FB721E00FD8647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A577126FB721E00FD8647 /* ViewController.swift */; };
+		B54A577226FB721E00FD8647 /* AppPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A577126FB721E00FD8647 /* AppPermissionsViewController.swift */; };
 		B54A577526FB721E00FD8647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54A577326FB721E00FD8647 /* Main.storyboard */; };
 		B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */; };
 		B54A577A26FB721E00FD8647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A577926FB721E00FD8647 /* Assets.xcassets */; };
 		B54A577D26FB721E00FD8647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */; };
 		B54A578826FB721E00FD8647 /* GretelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A578726FB721E00FD8647 /* GretelTests.swift */; };
 		B54A579326FB721E00FD8647 /* GretelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A579226FB721E00FD8647 /* GretelUITests.swift */; };
+		B54A57A126FB725500FD8647 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57A026FB725500FD8647 /* CoreDataManager.swift */; };
+		B54A57A326FB750400FD8647 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57A226FB750400FD8647 /* Coordinator.swift */; };
+		B54A57A526FB755800FD8647 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57A426FB755800FD8647 /* Storyboarded.swift */; };
+		B54A57A726FB760E00FD8647 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57A626FB760E00FD8647 /* MainCoordinator.swift */; };
+		B54A57AA26FB7BE300FD8647 /* AppPermissionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57A926FB7BE300FD8647 /* AppPermissionsCoordinator.swift */; };
+		B54A57AE26FB7CB000FD8647 /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57AD26FB7CB000FD8647 /* LocationPermissionViewController.swift */; };
+		B54A57B026FB813800FD8647 /* HealthPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */; };
+		B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B226FB88C700FD8647 /* PermissionGranting.swift */; };
+		B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */; };
+		B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */; };
+		B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B52F770226FE229500E149EF /* TrackDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDataProvider.swift; sourceTree = "<group>"; };
+		B52F770526FE275000E149EF /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 		B54A576A26FB721E00FD8647 /* Gretel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gretel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A576D26FB721E00FD8647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54A576F26FB721E00FD8647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B54A577126FB721E00FD8647 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B54A577126FB721E00FD8647 /* AppPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsViewController.swift; sourceTree = "<group>"; };
 		B54A577426FB721E00FD8647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B54A577726FB721E00FD8647 /* Gretel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gretel.xcdatamodel; sourceTree = "<group>"; };
 		B54A577926FB721E00FD8647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +66,17 @@
 		B54A578E26FB721E00FD8647 /* GretelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GretelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A579226FB721E00FD8647 /* GretelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GretelUITests.swift; sourceTree = "<group>"; };
 		B54A579426FB721E00FD8647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54A57A026FB725500FD8647 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B54A57A226FB750400FD8647 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B54A57A426FB755800FD8647 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		B54A57A626FB760E00FD8647 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B54A57A926FB7BE300FD8647 /* AppPermissionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsCoordinator.swift; sourceTree = "<group>"; };
+		B54A57AD26FB7CB000FD8647 /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
+		B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPermissionsViewController.swift; sourceTree = "<group>"; };
+		B54A57B226FB88C700FD8647 /* PermissionGranting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionGranting.swift; sourceTree = "<group>"; };
+		B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataProvider.swift; sourceTree = "<group>"; };
+		B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
+		B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +104,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52F770126FE187300E149EF /* Permissions Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				B54A577126FB721E00FD8647 /* AppPermissionsViewController.swift */,
+				B54A57AD26FB7CB000FD8647 /* LocationPermissionViewController.swift */,
+				B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */,
+			);
+			path = "Permissions Wizard";
+			sourceTree = "<group>";
+		};
+		B52F770426FE272300E149EF /* Track List */ = {
+			isa = PBXGroup;
+			children = (
+				B52F770526FE275000E149EF /* TrackListViewController.swift */,
+				B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */,
+			);
+			path = "Track List";
+			sourceTree = "<group>";
+		};
 		B54A576126FB721E00FD8647 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +146,16 @@
 		B54A576C26FB721E00FD8647 /* Gretel */ = {
 			isa = PBXGroup;
 			children = (
+				B54A57B126FB887500FD8647 /* Model */,
+				B54A57AB26FB7BED00FD8647 /* Coordinators */,
+				B54A57A826FB79B600FD8647 /* Protocols */,
+				B54A57AC26FB7C6500FD8647 /* View Controllers */,
 				B54A576D26FB721E00FD8647 /* AppDelegate.swift */,
 				B54A576F26FB721E00FD8647 /* SceneDelegate.swift */,
-				B54A577126FB721E00FD8647 /* ViewController.swift */,
 				B54A577326FB721E00FD8647 /* Main.storyboard */,
 				B54A577926FB721E00FD8647 /* Assets.xcassets */,
 				B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */,
 				B54A577E26FB721E00FD8647 /* Info.plist */,
-				B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */,
 			);
 			path = Gretel;
 			sourceTree = "<group>";
@@ -129,6 +176,46 @@
 				B54A579426FB721E00FD8647 /* Info.plist */,
 			);
 			path = GretelUITests;
+			sourceTree = "<group>";
+		};
+		B54A57A826FB79B600FD8647 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B54A57A226FB750400FD8647 /* Coordinator.swift */,
+				B54A57A426FB755800FD8647 /* Storyboarded.swift */,
+				B54A57B226FB88C700FD8647 /* PermissionGranting.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B54A57AB26FB7BED00FD8647 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B54A57A626FB760E00FD8647 /* MainCoordinator.swift */,
+				B54A57A926FB7BE300FD8647 /* AppPermissionsCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B54A57AC26FB7C6500FD8647 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B52F770426FE272300E149EF /* Track List */,
+				B52F770126FE187300E149EF /* Permissions Wizard */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B54A57B126FB887500FD8647 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */,
+				B54A57A026FB725500FD8647 /* CoreDataManager.swift */,
+				B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */,
+				B52F770226FE229500E149EF /* TrackDataProvider.swift */,
+				B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +348,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B54A577226FB721E00FD8647 /* ViewController.swift in Sources */,
+				B54A57AA26FB7BE300FD8647 /* AppPermissionsCoordinator.swift in Sources */,
+				B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */,
+				B54A577226FB721E00FD8647 /* AppPermissionsViewController.swift in Sources */,
+				B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */,
+				B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */,
+				B54A57A726FB760E00FD8647 /* MainCoordinator.swift in Sources */,
 				B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */,
+				B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */,
+				B54A57AE26FB7CB000FD8647 /* LocationPermissionViewController.swift in Sources */,
+				B54A57A326FB750400FD8647 /* Coordinator.swift in Sources */,
+				B52F770626FE275000E149EF /* TrackListViewController.swift in Sources */,
+				B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */,
+				B54A57B026FB813800FD8647 /* HealthPermissionsViewController.swift in Sources */,
+				B54A57A126FB725500FD8647 /* CoreDataManager.swift in Sources */,
 				B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */,
 				B54A577026FB721E00FD8647 /* SceneDelegate.swift in Sources */,
+				B54A57A526FB755800FD8647 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

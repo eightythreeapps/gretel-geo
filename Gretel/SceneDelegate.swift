@@ -6,17 +6,47 @@
 //
 
 import UIKit
+import CoreLocation
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: MainCoordinator!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        appWindow.windowScene = windowScene
+        
+        let navController = UINavigationController()
+        
+        let locationDataProvider = LocationDataProvider(locationManager: CLLocationManager(),
+                                                        locationPublisher: PassthroughSubject<CLLocation, Error>(),
+                                                        permissionPublisher: PassthroughSubject<Bool, Never>(),
+                                                        headingPublisher: PassthroughSubject<CLHeading, Error>())
+        
+        let trackDataProvider = TrackDataProvider(coreDataManager: CoreDataManager())
+        
+        let trackRecorder = TrackRecorder(trackDataProvider: trackDataProvider, locationDataProvider: locationDataProvider)
+        
+        self.coordinator = MainCoordinator(navigationController: navController,
+                                           locationDataProvider: locationDataProvider,
+                                           trackDataProvider: trackDataProvider,
+                                           trackRecorder: trackRecorder)
+        
+        self.coordinator.start()
+        
+        appWindow.rootViewController = navController
+        appWindow.makeKeyAndVisible()
+        
+        self.window = appWindow
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,7 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 
