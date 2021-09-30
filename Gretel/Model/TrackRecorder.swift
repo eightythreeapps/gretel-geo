@@ -22,15 +22,22 @@ class TrackRecorder {
         self.locationDataProvider = locationDataProvider
     }
     
-    func startRecording(with track:Track?) {
+    func startRecordingTrack(track:Track) {
+        self.beginRecording(track: track)
+    }
+    
+    func stopRecordingTrack(track:Track) {
+        self.endRecording(track: track)
+    }
+
+}
+
+private extension TrackRecorder {
+    
+    func beginRecording(track:Track) {
         
         self.isRecording = true
-        
-        if let track = track {
-            self.track = track
-        }else{
-            self.track = self.trackDataProvider.startNewTrack(name: "New track", startDate: Date())
-        }
+        self.trackDataProvider.setActiveTrack(track: track)
         
         self.locationDataProvider.locationPublisher.sink { completion in
             switch completion {
@@ -41,18 +48,13 @@ class TrackRecorder {
             }
         } receiveValue: { location in
             
-            if let track = self.track {
-                self.trackDataProvider.add(location: location, to: track)
-            }
+            self.trackDataProvider.add(location: location, to: track)
             
         }.store(in: &cancellables)
-        
     }
     
-    func stopRecording() {
+    func endRecording(track:Track) {
         self.isRecording = false
+        track.isActive = false
     }
-    
-    
-    
 }

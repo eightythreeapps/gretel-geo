@@ -31,6 +31,22 @@ class TrackDataProvider {
     
     public func add(location:CLLocation, to track:Track) {
         
+        //Create the new TrackPoint object
+        let trackPoint = TrackPoint(context: self.coreDataManager.persistentContainer.viewContext)
+        trackPoint.latitude = location.coordinate.latitude
+        trackPoint.longitude = location.coordinate.longitude
+        trackPoint.datetime = Date()
+        
+        //Add it to the Track
+        track.addToPoints(trackPoint)
+        
+        do {
+            try self.coreDataManager.persistentContainer.viewContext.save()
+            print("Location saved")
+        }catch {
+            print("Failed to store location \(error)")
+        }
+        
     }
     
     public func startNewTrack(name:String? = nil, startDate:Date) -> Track? {
@@ -52,6 +68,28 @@ class TrackDataProvider {
     
     public func deleteTrack(track:Track) {
         self.coreDataManager.persistentContainer.viewContext.delete(track)
+    }
+    
+    public func setActiveTrack(track:Track) {
+        
+        var tracks = Tracks()
+        let request:NSFetchRequest<Track> = Track.fetchRequest()
+
+        do {
+            tracks = try self.coreDataManager.persistentContainer.viewContext.fetch(request)
+            
+            for loadedTrack in tracks {
+                loadedTrack.isActive = false
+            }
+            
+            track.isActive = true
+            
+            try self.coreDataManager.persistentContainer.viewContext.save()
+            
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    
     }
     
     

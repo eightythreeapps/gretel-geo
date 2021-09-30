@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Combine
 
 class TrackListViewController: UIViewController, Storyboarded {
     
@@ -57,6 +58,12 @@ extension TrackListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = track.name
         cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
         
+        if track.isActive {
+            cell.backgroundColor = .green
+        }else{
+            cell.backgroundColor = .white
+        }
+        
         return cell
     }
     
@@ -85,17 +92,66 @@ extension TrackListViewController: UITableViewDelegate, UITableViewDataSource {
         self.coordinator.displayTrackDetail(track: track)
     }
     
-}
-
-extension TrackListViewController: NSFetchedResultsControllerDelegate {
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
+        guard let sections = self.fetchedResultsController.sections else {
+            return ""
+        }
+        
+        let sectionInfo = sections[section]
+        return sectionInfo.name
     }
     
 }
 
-extension TrackListViewController {
+extension TrackListViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let newIndexPath = newIndexPath else { return }
+            self.tableView.reloadRows(at: [newIndexPath], with: .automatic)
+        case .move:
+            self.tableView.reloadData()
+        case .delete:
+            guard let newIndexPath = newIndexPath else { return }
+            self.tableView.deleteRows(at: [newIndexPath], with: .automatic)
+        @unknown default:
+            fatalError()
+        }
+        
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+                
+        switch type {
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .move, .update:
+            self.tableView.reloadData()
+        @unknown default:
+            fatalError()
+        }
+    
+    }
+    
+}
+
+private extension TrackListViewController {
     
     @objc func startButtonHandler(sender:UIBarButtonItem) {
         self.coordinator.displayTrackDetail(track: nil)

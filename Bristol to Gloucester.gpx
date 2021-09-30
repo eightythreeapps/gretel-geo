@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+<rte>
+<name><![CDATA[Route]]></name>
+<type><![CDATA[Route]]></type>
+<rtept lat="51.4468323893" lon="-2.6050645565">
+<name><![CDATA[WP0001]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4463643221" lon="-2.6214644975">
+<name><![CDATA[WP0002]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4458196646" lon="-2.6224624868">
+<name><![CDATA[WP0003]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4469733899" lon="-2.6253201789">
+<name><![CDATA[WP0004]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4505174736" lon="-2.6267015573">
+<name><![CDATA[WP0005]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4634771381" lon="-2.6328529968">
+<name><![CDATA[WP0006]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4752882196" lon="-2.6515905122">
+<name><![CDATA[WP0007]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4868252037" lon="-2.6626645932">
+<name><![CDATA[WP0008]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4818147231" lon="-2.6662280999">
+<name><![CDATA[WP0009]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4781552234" lon="-2.6733024810">
+<name><![CDATA[WP0010]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4774345453" lon="-2.6813194277">
+<name><![CDATA[WP0011]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4804781637" lon="-2.6874848716">
+<name><![CDATA[WP0012]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4812253852" lon="-2.6865600815">
+<name><![CDATA[WP0013]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4826730828" lon="-2.6888499651">
+<name><![CDATA[WP0014]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4835988845" lon="-2.6919601718">
+<name><![CDATA[WP0015]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4835377775" lon="-2.6984757797">
+<name><![CDATA[WP0016]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4898041993" lon="-2.6917660556">
+<name><![CDATA[WP0017]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4950312416" lon="-2.6859032029">
+<name><![CDATA[WP0018]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4966629661" lon="-2.6820255768">
+<name><![CDATA[WP0019]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4978031476" lon="-2.6714545265">
+<name><![CDATA[WP0020]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4998998330" lon="-2.6664431657">
+<name><![CDATA[WP0021]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.4993273448" lon="-2.6643459477">
+<name><![CDATA[WP0022]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5048927441" lon="-2.6556146574">
+<name><![CDATA[WP0023]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5056508350" lon="-2.6486376348">
+<name><![CDATA[WP0024]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5042065634" lon="-2.6414853868">
+<name><![CDATA[WP0025]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5067418242" lon="-2.6341006797">
+<name><![CDATA[WP0026]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5087772801" lon="-2.6359660737">
+<name><![CDATA[WP0027]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5134333134" lon="-2.6436684325">
+<name><![CDATA[WP0028]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5177212978" lon="-2.6487369603">
+<name><![CDATA[WP0029]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5352586575" lon="-2.6298346546">
+<name><![CDATA[WP0030]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5340516526" lon="-2.6201586539">
+<name><![CDATA[WP0031]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5373437507" lon="-2.6155659726">
+<name><![CDATA[WP0032]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5481326565" lon="-2.6284382813">
+<name><![CDATA[WP0033]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5557557131" lon="-2.6236751813">
+<name><![CDATA[WP0034]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5583011190" lon="-2.6251763070">
+<name><![CDATA[WP0035]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5678514592" lon="-2.6129716234">
+<name><![CDATA[WP0036]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5697481112" lon="-2.5868558693">
+<name><![CDATA[WP0037]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5747080948" lon="-2.5909862401">
+<name><![CDATA[WP0038]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5792336191" lon="-2.5779224937">
+<name><![CDATA[WP0039]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5810130661" lon="-2.5771874228">
+<name><![CDATA[WP0040]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5841367105" lon="-2.5773713997">
+<name><![CDATA[WP0041]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5948882111" lon="-2.5805756772">
+<name><![CDATA[WP0042]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5957279020" lon="-2.5789622641">
+<name><![CDATA[WP0043]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.5977440217" lon="-2.5758117108">
+<name><![CDATA[WP0044]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6032056525" lon="-2.5759530756">
+<name><![CDATA[WP0045]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6061891151" lon="-2.5862794199">
+<name><![CDATA[WP0046]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6096894642" lon="-2.5830391873">
+<name><![CDATA[WP0047]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6089122220" lon="-2.5765669033">
+<name><![CDATA[WP0048]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6116738681" lon="-2.5633515871">
+<name><![CDATA[WP0049]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6111036492" lon="-2.5581713328">
+<name><![CDATA[WP0050]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6132718876" lon="-2.5534784351">
+<name><![CDATA[WP0051]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6118090841" lon="-2.5490558811">
+<name><![CDATA[WP0052]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6174185705" lon="-2.5464154655">
+<name><![CDATA[WP0053]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6293637430" lon="-2.5564449474">
+<name><![CDATA[WP0054]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6389186639" lon="-2.5489499119">
+<name><![CDATA[WP0055]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6442653759" lon="-2.5423199422">
+<name><![CDATA[WP0056]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6549181096" lon="-2.5255085296">
+<name><![CDATA[WP0057]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6526710575" lon="-2.5151835710">
+<name><![CDATA[WP0058]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6586602815" lon="-2.5103261695">
+<name><![CDATA[WP0059]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6697032037" lon="-2.5036540232">
+<name><![CDATA[WP0060]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6789272202" lon="-2.4938591221">
+<name><![CDATA[WP0061]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6802082897" lon="-2.4885215892">
+<name><![CDATA[WP0062]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6778332185" lon="-2.4840028541">
+<name><![CDATA[WP0063]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6820882446" lon="-2.4657514397">
+<name><![CDATA[WP0064]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6915217246" lon="-2.4588774746">
+<name><![CDATA[WP0065]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.6983155637" lon="-2.4574630185">
+<name><![CDATA[WP0066]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7102864995" lon="-2.4599716106">
+<name><![CDATA[WP0067]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7156151648" lon="-2.4359615735">
+<name><![CDATA[WP0068]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7167288545" lon="-2.4358544781">
+<name><![CDATA[WP0069]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7213719019" lon="-2.4291767326">
+<name><![CDATA[WP0070]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7188107316" lon="-2.4226023474">
+<name><![CDATA[WP0071]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7206802636" lon="-2.4087588466">
+<name><![CDATA[WP0072]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7209780433" lon="-2.3939234291">
+<name><![CDATA[WP0073]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7246199683" lon="-2.3869696986">
+<name><![CDATA[WP0074]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7287120530" lon="-2.3769690066">
+<name><![CDATA[WP0075]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7341134760" lon="-2.3853171487">
+<name><![CDATA[WP0076]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7330523052" lon="-2.3867560909">
+<name><![CDATA[WP0077]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7365969663" lon="-2.3955112109">
+<name><![CDATA[WP0078]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7446505981" lon="-2.3798669983">
+<name><![CDATA[WP0079]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7585125741" lon="-2.3748764790">
+<name><![CDATA[WP0080]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7590799143" lon="-2.3731788261">
+<name><![CDATA[WP0081]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7602459590" lon="-2.3704215784">
+<name><![CDATA[WP0082]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7648329988" lon="-2.3698794727">
+<name><![CDATA[WP0083]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7777457588" lon="-2.3555052072">
+<name><![CDATA[WP0084]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7820057916" lon="-2.3662653596">
+<name><![CDATA[WP0085]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7899575642" lon="-2.3606393339">
+<name><![CDATA[WP0086]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7970772653" lon="-2.3475371500">
+<name><![CDATA[WP0087]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.7974686463" lon="-2.3443863260">
+<name><![CDATA[WP0088]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8087121022" lon="-2.3426590245">
+<name><![CDATA[WP0089]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8109527965" lon="-2.3293679648">
+<name><![CDATA[WP0090]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8172127003" lon="-2.3252791948">
+<name><![CDATA[WP0091]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8216620494" lon="-2.3052738566">
+<name><![CDATA[WP0092]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8307446084" lon="-2.3045370567">
+<name><![CDATA[WP0093]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8319317677" lon="-2.2974343083">
+<name><![CDATA[WP0094]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8346503271" lon="-2.2889623261">
+<name><![CDATA[WP0095]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8337812408" lon="-2.2810605345">
+<name><![CDATA[WP0096]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8323096144" lon="-2.2760446456">
+<name><![CDATA[WP0097]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8369500882" lon="-2.2717189616">
+<name><![CDATA[WP0098]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8425146014" lon="-2.2662366291">
+<name><![CDATA[WP0099]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8458915101" lon="-2.2638976354">
+<name><![CDATA[WP00100]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8480280693" lon="-2.2633657471">
+<name><![CDATA[WP00101]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8572477831" lon="-2.2616045859">
+<name><![CDATA[WP00102]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8624277040" lon="-2.2570239488">
+<name><![CDATA[WP00103]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8615699739" lon="-2.2536300667">
+<name><![CDATA[WP00104]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8621152417" lon="-2.2509466654">
+<name><![CDATA[WP00105]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8640060751" lon="-2.2496501869">
+<name><![CDATA[WP00106]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8655341573" lon="-2.2498038575">
+<name><![CDATA[WP00107]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+<rtept lat="51.8673809560" lon="-2.2480712976">
+<name><![CDATA[WP00108]]></name>
+<sym><![CDATA[Dot]]></sym>
+<type><![CDATA[Waypoints]]></type>
+</rtept>
+</rte>
+</gpx>

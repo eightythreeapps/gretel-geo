@@ -29,6 +29,7 @@
 		B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */; };
 		B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */; };
 		B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */; };
+		B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36D2705B2D200E381C3 /* String+Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +76,14 @@
 		B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPermissionsViewController.swift; sourceTree = "<group>"; };
 		B54A57B226FB88C700FD8647 /* PermissionGranting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionGranting.swift; sourceTree = "<group>"; };
 		B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataProvider.swift; sourceTree = "<group>"; };
-		B5BB9BCE2705042500B51F9B /* TestRoute.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestRoute.gpx; sourceTree = "<group>"; };
 		B5BB9BCF2705045800B51F9B /* TestRoute.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = TestRoute.gpx; path = "../../../Library/Mobile Documents/com~apple~TextEdit/Documents/TestRoute.gpx"; sourceTree = "<group>"; };
 		B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
 		B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRecorder.swift; sourceTree = "<group>"; };
+		B5C3D36D2705B2D200E381C3 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		B5C3D3702705B65500E381C3 /* Bristol to Gloucester.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bristol to Gloucester.gpx"; sourceTree = "<group>"; };
+		B5C3D3712705B89900E381C3 /* bikehike_course.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = bikehike_course.gpx; sourceTree = "<group>"; };
+		B5C3D3722705B90200E381C3 /* bikehike_course-2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "bikehike_course-2.gpx"; sourceTree = "<group>"; };
+		B5C3D3732705B92800E381C3 /* bikehike_course-3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "bikehike_course-3.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +133,10 @@
 		B54A576126FB721E00FD8647 = {
 			isa = PBXGroup;
 			children = (
-				B5BB9BCE2705042500B51F9B /* TestRoute.gpx */,
+				B5C3D3732705B92800E381C3 /* bikehike_course-3.gpx */,
+				B5C3D3722705B90200E381C3 /* bikehike_course-2.gpx */,
+				B5C3D3712705B89900E381C3 /* bikehike_course.gpx */,
+				B5C3D3702705B65500E381C3 /* Bristol to Gloucester.gpx */,
 				B5BB9BCF2705045800B51F9B /* TestRoute.gpx */,
 				B54A576C26FB721E00FD8647 /* Gretel */,
 				B54A578626FB721E00FD8647 /* GretelTests */,
@@ -160,6 +168,7 @@
 				B54A577926FB721E00FD8647 /* Assets.xcassets */,
 				B54A577B26FB721E00FD8647 /* LaunchScreen.storyboard */,
 				B54A577E26FB721E00FD8647 /* Info.plist */,
+				B5C3D36F2705B2D600E381C3 /* Extensions */,
 			);
 			path = Gretel;
 			sourceTree = "<group>";
@@ -220,6 +229,14 @@
 				B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B5C3D36F2705B2D600E381C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5C3D36D2705B2D200E381C3 /* String+Localization.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +372,7 @@
 				B54A57AA26FB7BE300FD8647 /* AppPermissionsCoordinator.swift in Sources */,
 				B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */,
 				B54A577226FB721E00FD8647 /* AppPermissionsViewController.swift in Sources */,
+				B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */,
 				B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */,
 				B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */,
 				B54A57A726FB760E00FD8647 /* MainCoordinator.swift in Sources */,

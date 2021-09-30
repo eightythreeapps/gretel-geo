@@ -20,6 +20,8 @@ class LocationDataProvider:NSObject {
     public var headingPublisher:PassthroughSubject<CLHeading, Error>
     public var permissionPublisher:PassthroughSubject<Bool, Never>
     
+    @Published var hasLocatedUser = false
+    
     required init(locationManager:CLLocationManager, locationPublisher:PassthroughSubject<CLLocation,Error>, permissionPublisher:PassthroughSubject<Bool, Never>, headingPublisher:PassthroughSubject<CLHeading, Error>) {
         
         self.locationManager = locationManager
@@ -88,12 +90,14 @@ extension LocationDataProvider: CLLocationManagerDelegate {
         
         if let location = locations.first {
             self.locationPublisher.send(location)
+            self.hasLocatedUser = true
         }
         
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.locationPublisher.send(completion: .failure(error))
+        self.hasLocatedUser = false
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
