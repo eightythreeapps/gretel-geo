@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A90E2A19-DE44-45A4-B85D-C64894F5BE14"
+            uuid = "01AE82D9-C384-476B-A7C9-B5AEFF7491BA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Gretel/View Controllers/Track List/TrackListViewController.swift"
+            filePath = "Gretel/View Controllers/Track List/TrackDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "controller(_:didChange:atSectionIndex:for:)"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "mapViewWasPinched(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

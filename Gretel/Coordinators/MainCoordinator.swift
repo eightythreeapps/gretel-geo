@@ -70,6 +70,7 @@ extension MainCoordinator {
         let vc = TrackDetailViewController.instantiate()
         vc.track = track
         vc.trackRecorder = self.trackRecorder
+        vc.trackDataProvider = self.trackDataProvider
         vc.locationDataProvider = self.locationDataProvider
         self.navigationController.pushViewController(vc, animated: true)
     }

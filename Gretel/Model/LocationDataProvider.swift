@@ -90,7 +90,11 @@ extension LocationDataProvider: CLLocationManagerDelegate {
         
         if let location = locations.first {
             self.locationPublisher.send(location)
-            self.hasLocatedUser = true
+            
+            if self.hasLocatedUser == false {
+                self.hasLocatedUser = true
+            }
+            
         }
         
     }
