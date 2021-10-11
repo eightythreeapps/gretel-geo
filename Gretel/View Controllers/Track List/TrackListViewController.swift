@@ -14,6 +14,7 @@ class TrackListViewController: UIViewController, Storyboarded {
     //Dependencies
     public var coordinator:MainCoordinator!
     public var trackDataProvider:TrackDataProvider!
+    public var trackRecorder:TrackRecorder!
     
     private var fetchedResultsController:NSFetchedResultsController<Track>!
     
@@ -37,7 +38,7 @@ class TrackListViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.tableView.reloadData()
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -58,8 +59,12 @@ extension TrackListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = track.name
         cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
         
-        if track.isActive {
-            cell.backgroundColor = .green
+        if let activeTrack = self.trackRecorder.getCurrentTrack() {
+            if track.id == activeTrack.id {
+                cell.backgroundColor = .green
+            }else{
+                cell.backgroundColor = .white
+            }
         }else{
             cell.backgroundColor = .white
         }
@@ -114,6 +119,17 @@ extension TrackListViewController: NSFetchedResultsControllerDelegate {
         self.tableView.endUpdates()
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let track = self.fetchedResultsController.object(at: indexPath)
+            self.trackDataProvider.deleteTrack(track: track)
+            
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
@@ -122,7 +138,7 @@ extension TrackListViewController: NSFetchedResultsControllerDelegate {
             self.tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .update:
             guard let newIndexPath = newIndexPath else { return }
-            self.tableView.reloadRows(at: [newIndexPath], with: .automatic)
+            self.tableView.reloadRows(at: [newIndexPath], with: .none)
         case .move:
             self.tableView.reloadData()
         case .delete:

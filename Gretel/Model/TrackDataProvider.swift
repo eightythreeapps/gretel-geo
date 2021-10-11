@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftDate
 
 typealias Tracks = [Track]
 typealias TrackPoints = [TrackPoint]
@@ -23,9 +24,9 @@ class TrackDataProvider {
     public func trackListResultsController() -> NSFetchedResultsController<Track> {
         
         let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateStarted", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "section", ascending: true)]
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coreDataManager.persistentContainer.viewContext, sectionNameKeyPath: "dateStarted", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coreDataManager.persistentContainer.viewContext, sectionNameKeyPath: "section", cacheName: nil)
 
         return fetchedResultsController
         
@@ -46,7 +47,7 @@ class TrackDataProvider {
         
         do {
             try self.coreDataManager.persistentContainer.viewContext.save()
-            print("Location saved")
+            print("Location saved to track: \(track.id)")
         }catch {
             print("Failed to store location \(error)")
         }
@@ -54,10 +55,11 @@ class TrackDataProvider {
     }
     
     public func createNewTrack(name:String? = nil, startDate:Date) -> Track? {
-        
+    
         let track = Track(context: self.coreDataManager.persistentContainer.viewContext)
         track.name = name ?? TrackDataProvider.DefaultTrackName
         track.dateStarted = startDate
+        track.section = startDate.toFormat("dd MMM yyyy")
         track.id = UUID()
         
         do {
@@ -86,27 +88,6 @@ class TrackDataProvider {
             print("\(error.localizedDescription)")
         }
         
-    }
-    
-    public func setActiveTrack(track:Track) {
-        
-        var tracks = Tracks()
-        let request:NSFetchRequest<Track> = Track.fetchRequest()
-
-        do {
-            tracks = try self.coreDataManager.persistentContainer.viewContext.fetch(request)
-            
-            for loadedTrack in tracks {
-                loadedTrack.isActive = false
-            }
-            
-            track.isActive = true
-            try self.coreDataManager.persistentContainer.viewContext.save()
-            
-        } catch {
-            print("\(error.localizedDescription)")
-        }
-    
     }
         
     func loadTrackByID(trackID:UUID) -> Track? {
@@ -143,4 +124,14 @@ class TrackDataProvider {
         
     }
     
+    func isCurrentActiveTrack(track1:Track, track2:Track) -> Bool {
+    
+        if track1 === track2 {
+            return true
+        }
+        
+        return false
+    }
+    
 }
+

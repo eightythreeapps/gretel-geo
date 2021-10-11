@@ -62,6 +62,7 @@ extension MainCoordinator {
     func displayTrackList() {
         let vc = TrackListViewController.instantiate()
         vc.coordinator = self
+        vc.trackRecorder = self.trackRecorder
         vc.trackDataProvider = self.trackDataProvider
         self.navigationController.pushViewController(vc, animated: false)
     }

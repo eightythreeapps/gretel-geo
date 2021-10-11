@@ -6,6 +6,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
         <relationship name="points" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TrackPoint" inverseName="track" inverseEntity="TrackPoint"/>
     </entity>
     <entity name="TrackPoint" representedClassName="TrackPoint" syncable="YES" codeGenerationType="class">
@@ -17,7 +18,7 @@
         <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="points" inverseEntity="Track"/>
     </entity>
     <elements>
-        <element name="Track" positionX="-54" positionY="-9" width="128" height="119"/>
+        <element name="Track" positionX="-54" positionY="-9" width="128" height="134"/>
         <element name="TrackPoint" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

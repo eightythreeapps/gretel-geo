@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		B54A57B026FB813800FD8647 /* HealthPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */; };
 		B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B226FB88C700FD8647 /* PermissionGranting.swift */; };
 		B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */; };
+		B57CA80E2714815B008E5E2A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = B57CA80D2714815B008E5E2A /* SwiftDate */; };
 		B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */; };
 		B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */; };
 		B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36D2705B2D200E381C3 /* String+Localization.swift */; };
@@ -91,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57CA80E2714815B008E5E2A /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +257,9 @@
 			dependencies = (
 			);
 			name = Gretel;
+			packageProductDependencies = (
+				B57CA80D2714815B008E5E2A /* SwiftDate */,
+			);
 			productName = Gretel;
 			productReference = B54A576A26FB721E00FD8647 /* Gretel.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +331,9 @@
 				Base,
 			);
 			mainGroup = B54A576126FB721E00FD8647;
+			packageReferences = (
+				B57CA80C2714815B008E5E2A /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = B54A576B26FB721E00FD8647 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -719,6 +727,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B57CA80C2714815B008E5E2A /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B57CA80D2714815B008E5E2A /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57CA80C2714815B008E5E2A /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B54A577626FB721E00FD8647 /* Gretel.xcdatamodeld */ = {

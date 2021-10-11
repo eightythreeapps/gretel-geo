@@ -50,7 +50,8 @@ class TrackDetailViewController: UIViewController, Storyboarded {
     private var shouldTrackUserLocation = true
     private var shouldUpdatePolyline = false
     private var currentViewState:DetailViewState = .newTrack
-        
+    private var isEmptyTrack:Bool = true
+    
     ///Subscription store
     private var cancellables:[AnyCancellable] = []
     
@@ -63,6 +64,7 @@ class TrackDetailViewController: UIViewController, Storyboarded {
     var locationDataProvider:LocationDataProvider!
     var trackDataProvider:TrackDataProvider!
     var trackRecorder:TrackRecorder!
+    
     
     //Injectables
     var track:Track!
@@ -86,6 +88,12 @@ class TrackDetailViewController: UIViewController, Storyboarded {
         self.configureMapView()
         
         self.locationDataProvider.requestAccessToUsersLocation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if self.currentViewState == .newTrack {
+            self.trackDataProvider.deleteTrack(track: self.track)
+        }
     }
     
     
@@ -114,7 +122,7 @@ private extension TrackDetailViewController {
             self.shouldTrackUserLocation = true
             self.addTrackOverlay(for: self.track)
             self.recorderButton.setTitle("Resume".localized, for: .normal)
-            
+
         }
         
     }
@@ -156,10 +164,17 @@ private extension TrackDetailViewController {
         }.store(in: &cancellables)
         
         //Checks to see if the Track Recorder is active so the UI can update accordingly
-        self.trackRecorder.$isRecording.sink { isRecording in
+        self.trackRecorder.$currentState.sink { state in
             
-            if isRecording && self.track.isActive {
+            var isActiveTrack = false
+            if let recorderTrack = self.trackRecorder.getCurrentTrack() {
+                isActiveTrack = self.trackDataProvider.isCurrentActiveTrack(track1: self.track, track2: recorderTrack)
+            }
+            
+            if state == .recording && isActiveTrack {
                 self.configureView(for: .activeTrack)
+            }else if !isActiveTrack, let points = self.track.points, points.count == 0 {
+                self.configureView(for: .newTrack)
             }else{
                 self.configureView(for: .inactiveTrack)
             }
@@ -190,7 +205,7 @@ private extension TrackDetailViewController {
             }
             
             if self.shouldUpdatePolyline {
-                guard let track = self.trackRecorder.activeTrack else{
+                guard let track = self.trackRecorder.getCurrentTrack() else{
                     return
                 }
                 
@@ -248,14 +263,33 @@ private extension TrackDetailViewController {
     @IBAction func recorderButtonHandler(sender:UIButton) {
         //Change the status of the isRecording flag. This is a published var to the subscribers
         //in this class can pick up on its changes
-        
-        if !self.trackRecorder.isRecording {
-            self.trackRecorder.activeTrack = track
-        }else{
-            self.trackRecorder.activeTrack = nil
+        switch self.trackRecorder.currentState {
+        case .paused, .stopped:
+            self.trackRecorder.setCurrentTrack(track: self.track)
+            self.trackRecorder.currentState = .recording
+        case .recording:
+            
+            //Are we starting a new recoridng or simeply pausing the existing one?
+            if let currentTrack = self.trackRecorder.getCurrentTrack(), currentTrack.id != self.track.id {
+                self.displayExistingTrackWarning()
+            }else{
+                self.trackRecorder.currentState = .paused
+            }
+            
         }
-        self.trackRecorder.isRecording = !self.trackRecorder.isRecording
+
+    }
+    
+    func displayExistingTrackWarning() {
+        let alertController = UIAlertController(title: "Already recording".localized, message: "You are already recording a track. Starting a new one will stop the existing recording. Do you wish to continue?", preferredStyle: .alert)
         
+        alertController.addAction(UIAlertAction(title: "Cancel new recording", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Start new track", style: .destructive, handler: { action in
+            self.trackRecorder.setCurrentTrack(track: self.track)
+            self.trackRecorder.currentState = .recording
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
