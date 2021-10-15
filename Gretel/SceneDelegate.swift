@@ -26,13 +26,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appWindow.windowScene = windowScene
         
         let navController = UINavigationController()
+        let context = CoreDataManager().persistentContainer.viewContext
         
         let locationDataProvider = LocationDataProvider(locationManager: CLLocationManager(),
                                                         locationPublisher: PassthroughSubject<CLLocation, Error>(),
                                                         permissionPublisher: PassthroughSubject<Bool, Never>(),
                                                         headingPublisher: PassthroughSubject<CLHeading, Error>())
         
-        let trackDataProvider = TrackDataProvider(coreDataManager: CoreDataManager())
+        let trackDataProvider = TrackDataProvider(context: context)
         
         self.trackRecorder = TrackRecorder(trackDataProvider: trackDataProvider, locationDataProvider: locationDataProvider)
         

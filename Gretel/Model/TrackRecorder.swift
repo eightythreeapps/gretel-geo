@@ -96,6 +96,5 @@ private extension TrackRecorder {
     
     func endRecording(track:Track) {
         print("Stopping track \(track.id)")
-        self.trackDataProvider.setTrackInactive(track: track, endDate: Date())
     }
 }

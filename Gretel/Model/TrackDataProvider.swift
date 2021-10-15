@@ -15,10 +15,10 @@ typealias TrackPoints = [TrackPoint]
 class TrackDataProvider {
     
     public static let DefaultTrackName = "New track".localized
-    private var coreDataManager:CoreDataManager!
+    private var context:NSManagedObjectContext!
     
-    init(coreDataManager:CoreDataManager) {
-        self.coreDataManager = coreDataManager
+    init(context:NSManagedObjectContext) {
+        self.context = context
     }
     
     public func trackListResultsController() -> NSFetchedResultsController<Track> {
@@ -26,7 +26,7 @@ class TrackDataProvider {
         let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "section", ascending: true)]
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coreDataManager.persistentContainer.viewContext, sectionNameKeyPath: "section", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "section", cacheName: nil)
 
         return fetchedResultsController
         
@@ -35,7 +35,7 @@ class TrackDataProvider {
     public func add(location:CLLocation, to track:Track) {
         
         //Create the new TrackPoint object
-        let trackPoint = TrackPoint(context: self.coreDataManager.persistentContainer.viewContext)
+        let trackPoint = TrackPoint(context: self.context)
         trackPoint.latitude = location.coordinate.latitude
         trackPoint.longitude = location.coordinate.longitude
         trackPoint.datetime = Date()
@@ -46,7 +46,7 @@ class TrackDataProvider {
         track.addToPoints(trackPoint)
         
         do {
-            try self.coreDataManager.persistentContainer.viewContext.save()
+            try self.context.save()
             print("Location saved to track: \(track.id)")
         }catch {
             print("Failed to store location \(error)")
@@ -56,14 +56,14 @@ class TrackDataProvider {
     
     public func createNewTrack(name:String? = nil, startDate:Date) -> Track? {
     
-        let track = Track(context: self.coreDataManager.persistentContainer.viewContext)
+        let track = Track(context: self.context)
         track.name = name ?? TrackDataProvider.DefaultTrackName
         track.dateStarted = startDate
         track.section = startDate.toFormat("dd MMM yyyy")
         track.id = UUID()
         
         do {
-            try self.coreDataManager.persistentContainer.viewContext.save()
+            try self.context.save()
             return track
         } catch {
             print("Create failed: \(error.localizedDescription)")
@@ -74,22 +74,9 @@ class TrackDataProvider {
     }
     
     public func deleteTrack(track:Track) {
-        self.coreDataManager.persistentContainer.viewContext.delete(track)
+        self.context.delete(track)
     }
-    
-    public func setTrackInactive(track:Track, endDate:Date? = nil) {
-        track.isActive = false
-        if endDate != nil {
-            track.dateEnded = endDate
-        }
-        do {
-            try self.coreDataManager.persistentContainer.viewContext.save()
-        }catch {
-            print("\(error.localizedDescription)")
-        }
-        
-    }
-        
+   
     func loadTrackByID(trackID:UUID) -> Track? {
         
         var tracks = Tracks()
@@ -97,7 +84,7 @@ class TrackDataProvider {
         request.predicate = NSPredicate(format: "%K == %@", "id", trackID as CVarArg)
         
         do {
-            tracks = try self.coreDataManager.persistentContainer.viewContext.fetch(request)
+            tracks = try self.context.fetch(request)
             if tracks.count == 1 {
                 return tracks.first
             }

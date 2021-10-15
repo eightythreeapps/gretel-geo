@@ -39,6 +39,22 @@ class CoreDataManager {
         })
         return container
     }()
+    
+    lazy var testPersistentStoreCoordinator: NSPersistentCloudKitContainer = {
+        
+        let container = NSPersistentCloudKitContainer(name: "Gretel")
+        let description = NSPersistentStoreDescription()
+        description.url = URL(fileURLWithPath: "/dev/null")
+        container.persistentStoreDescriptions = [description]
+        
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+        
+    }()
 
     // MARK: - Core Data Saving support
 
