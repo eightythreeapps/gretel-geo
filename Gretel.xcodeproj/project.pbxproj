@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52CC9CC2719CDAA00FC6391 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CC9CB2719CDAA00FC6391 /* BottomSheetViewController.swift */; };
 		B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F770226FE229500E149EF /* TrackDataProvider.swift */; };
 		B52F770626FE275000E149EF /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F770526FE275000E149EF /* TrackListViewController.swift */; };
 		B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A576D26FB721E00FD8647 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */; };
 		B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */; };
 		B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36D2705B2D200E381C3 /* String+Localization.swift */; };
+		B5FD4E062719D91C0050FA53 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD4E052719D91C0050FA53 /* BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B52CC9CB2719CDAA00FC6391 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		B52F770226FE229500E149EF /* TrackDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDataProvider.swift; sourceTree = "<group>"; };
 		B52F770526FE275000E149EF /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 		B54A576A26FB721E00FD8647 /* Gretel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gretel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +88,7 @@
 		B5C3D3712705B89900E381C3 /* bikehike_course.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = bikehike_course.gpx; sourceTree = "<group>"; };
 		B5C3D3722705B90200E381C3 /* bikehike_course-2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "bikehike_course-2.gpx"; sourceTree = "<group>"; };
 		B5C3D3732705B92800E381C3 /* bikehike_course-3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "bikehike_course-3.gpx"; sourceTree = "<group>"; };
+		B5FD4E052719D91C0050FA53 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 			children = (
 				B52F770526FE275000E149EF /* TrackListViewController.swift */,
 				B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */,
+				B52CC9CB2719CDAA00FC6391 /* BottomSheetViewController.swift */,
 			);
 			path = "Track List";
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				B54A57A226FB750400FD8647 /* Coordinator.swift */,
 				B54A57A426FB755800FD8647 /* Storyboarded.swift */,
 				B54A57B226FB88C700FD8647 /* PermissionGranting.swift */,
+				B5FD4E052719D91C0050FA53 /* BottomSheet.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */,
 				B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */,
 				B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */,
+				B5FD4E062719D91C0050FA53 /* BottomSheet.swift in Sources */,
 				B54A57A726FB760E00FD8647 /* MainCoordinator.swift in Sources */,
 				B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */,
 				B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */,
@@ -390,6 +397,7 @@
 				B54A57A326FB750400FD8647 /* Coordinator.swift in Sources */,
 				B52F770626FE275000E149EF /* TrackListViewController.swift in Sources */,
 				B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */,
+				B52CC9CC2719CDAA00FC6391 /* BottomSheetViewController.swift in Sources */,
 				B54A57B026FB813800FD8647 /* HealthPermissionsViewController.swift in Sources */,
 				B54A57A126FB725500FD8647 /* CoreDataManager.swift in Sources */,
 				B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */,

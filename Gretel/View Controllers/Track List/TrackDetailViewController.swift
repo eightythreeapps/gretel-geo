@@ -15,7 +15,7 @@ enum DetailViewState {
     case inactiveTrack
 }
 
-class TrackDetailViewController: UIViewController, Storyboarded {
+class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost {
 
     ///Set up a recognizer to capture the user panning the map view. This is works in conjunction with the var `shouldTrackUserLocation`
     ///to make sure that the user can pan the map without the location update re-centering the view on the users current position
@@ -86,8 +86,9 @@ class TrackDetailViewController: UIViewController, Storyboarded {
         
         self.initializeSubscriptions()
         self.configureMapView()
-        
         self.locationDataProvider.requestAccessToUsersLocation()
+        
+        self.addBottomSheetView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
