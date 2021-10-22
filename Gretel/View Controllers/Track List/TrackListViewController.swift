@@ -142,8 +142,8 @@ extension TrackListViewController: NSFetchedResultsControllerDelegate {
         case .move:
             self.tableView.reloadData()
         case .delete:
-            guard let newIndexPath = newIndexPath else { return }
-            self.tableView.deleteRows(at: [newIndexPath], with: .automatic)
+            guard let indexPath = indexPath else { return }
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         @unknown default:
             fatalError()
         }

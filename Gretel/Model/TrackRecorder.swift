@@ -90,11 +90,11 @@ class TrackRecorder {
 private extension TrackRecorder {
     
     func beginRecording(track:Track) {
-        print("Starting track with ID: \(track.id)")
+        print("Starting track with ID: \(String(describing: track.id))")
         self.track = track
     }
     
     func endRecording(track:Track) {
-        print("Stopping track \(track.id)")
+        print("Stopping track \(String(describing: track.id))")
     }
 }

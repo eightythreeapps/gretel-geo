@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Gretel needs acccess to your location to function. This data stays on the device or within your iCloud account. It is never shared outside of this application.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Gretel needs acccess to your location to function. This data stays on the device or within your iCloud account. It is never shared outside of this application.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Gretel needs acccess to your location to function. This data stays on the device or within your iCloud account. It is never shared outside of this application.</string>
 	<key>UIApplicationSceneManifest</key>

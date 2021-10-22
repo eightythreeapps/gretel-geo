@@ -28,7 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = UINavigationController()
         let context = CoreDataManager().persistentContainer.viewContext
         
-        let locationDataProvider = LocationDataProvider(locationManager: CLLocationManager(),
+        let locationManager = CLLocationManager()
+        
+        let locationDataProvider = LocationDataProvider(locationManager: locationManager,
                                                         locationPublisher: PassthroughSubject<CLLocation, Error>(),
                                                         permissionPublisher: PassthroughSubject<Bool, Never>(),
                                                         headingPublisher: PassthroughSubject<CLHeading, Error>())

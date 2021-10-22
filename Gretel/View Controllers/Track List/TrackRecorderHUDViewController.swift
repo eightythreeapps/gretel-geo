@@ -1,0 +1,52 @@
+//
+//  TrackRecorderHUDViewController.swift
+//  Gretel
+//
+//  Created by Ben Reed on 22/10/2021.
+//
+
+import UIKit
+
+protocol TrackRecorderHUDViewControllerDelegate {
+    func recorderDidStart()
+    func recorderDidStop()
+}
+
+class TrackRecorderHUDViewController: BottomSheetViewController {
+
+    var trackRecorder:TrackRecorder!
+    var delegate:TrackRecorderHUDViewControllerDelegate!
+    
+    @IBOutlet private var recorderButton:UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func configure(for state:RecorderState) {
+       
+        switch state {
+        case .newTrack:
+            self.recorderButton.setTitle("Start".localized, for: .normal)
+        case .activeTrack:
+            self.recorderButton.setTitle("Stop".localized, for: .normal)
+        case .inactiveTrack:
+            self.recorderButton.setTitle("Resume".localized, for: .normal)
+        }
+        
+    }
+    
+    @IBAction func recorderButtonHandler(sender:UIButton){
+        
+        switch self.trackRecorder.currentState {
+        case .paused, .stopped:
+            self.delegate.recorderDidStart()
+        case .recording:
+            self.delegate.recorderDidStop()
+        }
+        
+    }
+    
+}

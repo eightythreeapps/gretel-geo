@@ -47,7 +47,7 @@ class TrackDataProvider {
         
         do {
             try self.context.save()
-            print("Location saved to track: \(track.id)")
+            print("Location saved to track: \(String(describing: track.id))")
         }catch {
             print("Failed to store location \(error)")
         }

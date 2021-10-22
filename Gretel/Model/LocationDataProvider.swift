@@ -13,7 +13,7 @@ typealias PermissionGranted = (Bool) -> Void
 
 class LocationDataProvider:NSObject {
     
-    private var locationManager:CLLocationManager
+    private var locationManager:LocationManager!
     private var locationPermissionGranted:PermissionGranted?
     
     public var locationPublisher:PassthroughSubject<CLLocation, Error>
@@ -22,7 +22,7 @@ class LocationDataProvider:NSObject {
     
     @Published var hasLocatedUser = false
     
-    required init(locationManager:CLLocationManager, locationPublisher:PassthroughSubject<CLLocation,Error>, permissionPublisher:PassthroughSubject<Bool, Never>, headingPublisher:PassthroughSubject<CLHeading, Error>) {
+    required init(locationManager:LocationManager, locationPublisher:PassthroughSubject<CLLocation,Error>, permissionPublisher:PassthroughSubject<Bool, Never>, headingPublisher:PassthroughSubject<CLHeading, Error>) {
         
         self.locationManager = locationManager
         self.locationPublisher = locationPublisher
@@ -45,8 +45,8 @@ class LocationDataProvider:NSObject {
     
     public func requestAccessToUsersLocation() {
         
-        let currentStatus = self.locationManager.authorizationStatus
-        
+        let currentStatus = self.locationManager.getAuthorizationStatus()
+        print(currentStatus.rawValue)
         switch currentStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             self.permissionPublisher.send(true)
@@ -54,7 +54,7 @@ class LocationDataProvider:NSObject {
             self.permissionPublisher.send(false)
             break
         case .notDetermined:
-            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.requestAlwaysAuthorization()
             break
         @unknown default:
             fatalError()
@@ -68,6 +68,8 @@ private extension LocationDataProvider {
     
     func configureLocationManager() {
         self.locationManager.delegate = self
+        self.locationManager.allowsBackgroundLocationUpdates = true
+        
     }
     
 }
@@ -77,7 +79,7 @@ extension LocationDataProvider: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         switch manager.authorizationStatus {
-        case .authorizedWhenInUse:
+        case .authorizedWhenInUse, .authorizedAlways:
             self.permissionPublisher.send(true)
         default:
             self.permissionPublisher.send(false)

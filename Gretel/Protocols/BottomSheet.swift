@@ -9,14 +9,13 @@ import UIKit
 
 
 protocol BottomSheetHost {
-    func addBottomSheetView()
+    func addBottomSheetViewController(viewController:BottomSheetViewController)
 }
 
 extension BottomSheetHost where Self:UIViewController {
     
-    func addBottomSheetView() {
+    func addBottomSheetViewController(viewController:BottomSheetViewController) {
        
-        let viewController = BottomSheetViewController.instantiate()
         self.addChild(viewController)
         
         self.view.addSubview(viewController.view)
@@ -69,7 +68,7 @@ extension BottomSheet where Self:UIViewController {
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
 
-        self.view.addSubview(bluredView)
+        self.view.insertSubview(bluredView, at: 0)
         
         handleView.center = CGPoint(x: bluredView.frame.width / 2, y: 10)
         

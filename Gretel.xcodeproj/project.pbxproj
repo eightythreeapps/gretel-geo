@@ -29,9 +29,13 @@
 		B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B226FB88C700FD8647 /* PermissionGranting.swift */; };
 		B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */; };
 		B57CA80E2714815B008E5E2A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = B57CA80D2714815B008E5E2A /* SwiftDate */; };
+		B5A8521E272312E900FD492C /* TrackRecorderHUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8521D272312E900FD492C /* TrackRecorderHUDViewController.swift */; };
 		B5C3D36526FE329600E381C3 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */; };
 		B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */; };
 		B5C3D36E2705B2D200E381C3 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3D36D2705B2D200E381C3 /* String+Localization.swift */; };
+		B5C7319E271F1E7A00BC78F3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523EC06271F113300072B73 /* LocationManager.swift */; };
+		B5C7319F271F1E8200BC78F3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523EC06271F113300072B73 /* LocationManager.swift */; };
+		B5C731A0271F205800BC78F3 /* CLLocationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523EC04271F0E9F00072B73 /* CLLocationManagerMock.swift */; };
 		B5FD4E062719D91C0050FA53 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD4E052719D91C0050FA53 /* BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B523EC04271F0E9F00072B73 /* CLLocationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerMock.swift; sourceTree = "<group>"; };
+		B523EC06271F113300072B73 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B52CC9CB2719CDAA00FC6391 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		B52F770226FE229500E149EF /* TrackDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDataProvider.swift; sourceTree = "<group>"; };
 		B52F770526FE275000E149EF /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 		B54A57AF26FB813800FD8647 /* HealthPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPermissionsViewController.swift; sourceTree = "<group>"; };
 		B54A57B226FB88C700FD8647 /* PermissionGranting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionGranting.swift; sourceTree = "<group>"; };
 		B54A57B426FB89C500FD8647 /* LocationDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataProvider.swift; sourceTree = "<group>"; };
+		B5A8521D272312E900FD492C /* TrackRecorderHUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRecorderHUDViewController.swift; sourceTree = "<group>"; };
 		B5BB9BCF2705045800B51F9B /* TestRoute.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = TestRoute.gpx; path = "../../../Library/Mobile Documents/com~apple~TextEdit/Documents/TestRoute.gpx"; sourceTree = "<group>"; };
 		B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
 		B5C3D36B27036E4200E381C3 /* TrackRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRecorder.swift; sourceTree = "<group>"; };
@@ -133,6 +140,7 @@
 				B52F770526FE275000E149EF /* TrackListViewController.swift */,
 				B5C3D36426FE329600E381C3 /* TrackDetailViewController.swift */,
 				B52CC9CB2719CDAA00FC6391 /* BottomSheetViewController.swift */,
+				B5A8521D272312E900FD492C /* TrackRecorderHUDViewController.swift */,
 			);
 			path = "Track List";
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 		B54A578626FB721E00FD8647 /* GretelTests */ = {
 			isa = PBXGroup;
 			children = (
+				B5C731A2271F20AB00BC78F3 /* Mocks */,
 				B54A578726FB721E00FD8647 /* GretelTests.swift */,
 				B54A578926FB721E00FD8647 /* Info.plist */,
 			);
@@ -201,6 +210,7 @@
 		B54A57A826FB79B600FD8647 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B523EC06271F113300072B73 /* LocationManager.swift */,
 				B54A57A226FB750400FD8647 /* Coordinator.swift */,
 				B54A57A426FB755800FD8647 /* Storyboarded.swift */,
 				B54A57B226FB88C700FD8647 /* PermissionGranting.swift */,
@@ -245,6 +255,14 @@
 				B5C3D36D2705B2D200E381C3 /* String+Localization.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5C731A2271F20AB00BC78F3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B523EC04271F0E9F00072B73 /* CLLocationManagerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,16 +408,19 @@
 				B52F770326FE229500E149EF /* TrackDataProvider.swift in Sources */,
 				B54A57B326FB88C700FD8647 /* PermissionGranting.swift in Sources */,
 				B5FD4E062719D91C0050FA53 /* BottomSheet.swift in Sources */,
+				B5C731A0271F205800BC78F3 /* CLLocationManagerMock.swift in Sources */,
 				B54A57A726FB760E00FD8647 /* MainCoordinator.swift in Sources */,
 				B54A576E26FB721E00FD8647 /* AppDelegate.swift in Sources */,
 				B5C3D36C27036E4200E381C3 /* TrackRecorder.swift in Sources */,
 				B54A57AE26FB7CB000FD8647 /* LocationPermissionViewController.swift in Sources */,
 				B54A57A326FB750400FD8647 /* Coordinator.swift in Sources */,
+				B5A8521E272312E900FD492C /* TrackRecorderHUDViewController.swift in Sources */,
 				B52F770626FE275000E149EF /* TrackListViewController.swift in Sources */,
 				B54A57B526FB89C500FD8647 /* LocationDataProvider.swift in Sources */,
 				B52CC9CC2719CDAA00FC6391 /* BottomSheetViewController.swift in Sources */,
 				B54A57B026FB813800FD8647 /* HealthPermissionsViewController.swift in Sources */,
 				B54A57A126FB725500FD8647 /* CoreDataManager.swift in Sources */,
+				B5C7319E271F1E7A00BC78F3 /* LocationManager.swift in Sources */,
 				B54A577826FB721E00FD8647 /* Gretel.xcdatamodeld in Sources */,
 				B54A577026FB721E00FD8647 /* SceneDelegate.swift in Sources */,
 				B54A57A526FB755800FD8647 /* Storyboarded.swift in Sources */,
@@ -411,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A578826FB721E00FD8647 /* GretelTests.swift in Sources */,
+				B5C7319F271F1E8200BC78F3 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

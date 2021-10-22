@@ -23,7 +23,7 @@ class GretelTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        let locationManager = CLLocationManager()
+        let locationManager = CLLocationManagerMock()
         let context = CoreDataManager().testPersistentStoreCoordinator.viewContext
         self.locationDataProvider = LocationDataProvider(locationManager: locationManager,
                                                         locationPublisher: PassthroughSubject<CLLocation, Error>(),
@@ -44,14 +44,14 @@ class GretelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-//    func testLocationManagerCanLocateUser() throws {
-//        // This is an example of a functional test case.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//        
+    func testLocationManagerCanLocateUser() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
 //        let expectation = self.expectation(description: "User has been located")
 //        var error: Error?
 //        var locationFound:Bool = false
-//        
+//
 //        self.locationDataProvider.$hasLocatedUser.sink { completion in
 //            switch completion {
 //                case .finished:
@@ -60,23 +60,23 @@ class GretelTests: XCTestCase {
 //                    print(encounteredError.localizedDescription)
 //                    error = encounteredError
 //            }
-//            
+//
 //            expectation.fulfill()
-//            
+//
 //        } receiveValue: { userHasBeenLocated in
 //            locationFound = userHasBeenLocated
-//            
+//
 //        }.store(in: &cancellables)
-//        
+//
 //        self.locationDataProvider.startTrackingLocation()
-//        
+//
 //        waitForExpectations(timeout: 10)
-//        
+//
 //        // Asserting that our Combine pipeline yielded the
 //        // correct output:
 //        XCTAssertNil(error)
 //        XCTAssertTrue(locationFound)
-//    }
+    }
     
     func testSaveValidNewTack() {
         
@@ -176,6 +176,7 @@ class GretelTests: XCTestCase {
         
         self.trackRecorder.setCurrentTrack(track: trackOne!)
         
+        XCTAssert(self.trackRecorder.getCurrentTrack() != trackTwo!)
         XCTAssert(self.trackRecorder.getCurrentTrack() == trackOne!)
         
     }
@@ -215,6 +216,30 @@ class GretelTests: XCTestCase {
     }
     
 }
+
+//View Controller tests
+extension GretelTests {
+    
+    func testTrackListContainsCorrectRowCount() {
+        
+        
+//        let numberOfPoints = 20
+//        let count = 1...numberOfPoints
+//        for _ in count {
+//            
+//            let trackOne = self.trackDataProvider.createNewTrack(name: "Track One", startDate: Date())
+//            
+//        }
+//        
+//        let viewController = TrackListViewController.instantiate()
+        
+        
+        
+        
+    }
+    
+}
+
 
 extension GretelTests {
     

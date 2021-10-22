@@ -20,8 +20,6 @@ class BottomSheetViewController: UIViewController, Storyboarded, BottomSheet {
         
     }
     
-    
-    
     @objc func panGesture(recognizer: UIPanGestureRecognizer) {
         self.panHandler(recognizer: recognizer)
     }

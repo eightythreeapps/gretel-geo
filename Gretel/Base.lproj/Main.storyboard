@@ -178,14 +178,6 @@
                                     <outlet property="delegate" destination="qGn-OW-1Rx" id="2sf-CA-FnA"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LD1-vQ-iBN">
-                                <rect key="frame" x="158" y="740" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recorder start"/>
-                                <connections>
-                                    <action selector="recorderButtonHandlerWithSender:" destination="qGn-OW-1Rx" eventType="touchUpInside" id="Z90-1t-qtB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4u-qB-Yqq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -198,27 +190,39 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="zL5-nm-nYq" id="POd-Pl-FR2"/>
-                        <outlet property="recorderButton" destination="LD1-vQ-iBN" id="KKl-sy-db5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNF-to-r7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3537.68115942029" y="49.553571428571423"/>
         </scene>
-        <!--Bottom Sheet View Controller-->
-        <scene sceneID="UQc-J0-Qnh">
+        <!--Track RecorderHUD View Controller-->
+        <scene sceneID="9cO-PD-nub">
             <objects>
-                <viewController storyboardIdentifier="BottomSheetViewController" id="mSl-qn-tXn" customClass="BottomSheetViewController" customModule="Gretel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="otF-3f-Wuk">
+                <viewController storyboardIdentifier="TrackRecorderHUDViewController" id="sJI-2H-YWt" customClass="TrackRecorderHUDViewController" customModule="Gretel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wrf-0M-afb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="RFO-uP-JHZ"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCv-Qd-ssL">
+                                <rect key="frame" x="184" y="182" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="recorderButtonHandlerWithSender:" destination="sJI-2H-YWt" eventType="touchUpInside" id="u50-yz-beX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xr2-wE-bZd"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="recorderButton" destination="pCv-Qd-ssL" id="CMY-F3-WKk"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tLd-Vq-tPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBI-Qa-5ZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4319" y="50"/>
+            <point key="canvasLocation" x="4442" y="50"/>
         </scene>
     </scenes>
     <resources>

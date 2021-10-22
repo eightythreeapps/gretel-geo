@@ -9,14 +9,14 @@ import UIKit
 import MapKit
 import Combine
 
-enum DetailViewState {
+enum RecorderState {
     case newTrack
     case activeTrack
     case inactiveTrack
 }
 
 class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost {
-
+  
     ///Set up a recognizer to capture the user panning the map view. This is works in conjunction with the var `shouldTrackUserLocation`
     ///to make sure that the user can pan the map without the location update re-centering the view on the users current position
     private lazy var mapPanGestureRecognizer:UIPanGestureRecognizer = {
@@ -49,22 +49,22 @@ class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost
     ///Works with the gesture recognizers to control map interaction
     private var shouldTrackUserLocation = true
     private var shouldUpdatePolyline = false
-    private var currentViewState:DetailViewState = .newTrack
+    private var currentViewState:RecorderState = .newTrack
     private var isEmptyTrack:Bool = true
+    private var isInitialLoad = true
     
     ///Subscription store
     private var cancellables:[AnyCancellable] = []
     
     //Outlets
     @IBOutlet private var mapView:MKMapView!
-    @IBOutlet private var recorderButton:UIButton!
-    
     
     //Dependencies
     var locationDataProvider:LocationDataProvider!
     var trackDataProvider:TrackDataProvider!
     var trackRecorder:TrackRecorder!
     
+    var trackRecorderViewController:TrackRecorderHUDViewController!
     
     //Injectables
     var track:Track!
@@ -84,11 +84,17 @@ class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost
         
         self.title = self.track.name
         
+        self.trackRecorderViewController = TrackRecorderHUDViewController.instantiate()
+        self.trackRecorderViewController.delegate = self
+        self.trackRecorderViewController.trackRecorder = self.trackRecorder
+        
+        self.addBottomSheetViewController(viewController: self.trackRecorderViewController)
+        
         self.initializeSubscriptions()
         self.configureMapView()
         self.locationDataProvider.requestAccessToUsersLocation()
         
-        self.addBottomSheetView()
+       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -102,28 +108,21 @@ class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost
 
 private extension TrackDetailViewController {
         
-    func configureView(for state:DetailViewState) {
+    func configureView(for state:RecorderState) {
         
         self.currentViewState = state
+        self.trackRecorderViewController.configure(for: state)
         
         switch state {
         case .newTrack:
             self.shouldTrackUserLocation = true
             self.shouldUpdatePolyline = false
-            self.recorderButton.setTitle("Start".localized, for: .normal)
-            
         case .activeTrack:
-            
             self.shouldTrackUserLocation = true
             self.shouldUpdatePolyline = true
-            self.recorderButton.setTitle("Stop".localized, for: .normal)
-            
         case .inactiveTrack:
-            
             self.shouldTrackUserLocation = true
             self.addTrackOverlay(for: self.track)
-            self.recorderButton.setTitle("Resume".localized, for: .normal)
-
         }
         
     }
@@ -144,78 +143,15 @@ private extension TrackDetailViewController {
         self.mapView.addOverlay(newPolyline)
         
         //On intial load of an inactive track, zoom the map to fit.
-        if self.currentViewState == .inactiveTrack {
+        if self.currentViewState == .inactiveTrack && self.isInitialLoad {
             self.zoomMapToPolyline(polyline: newPolyline)
+            self.isInitialLoad = false
         }
         
     }
     
     func zoomMapToPolyline(polyline:MKPolyline) {
         self.mapView.setVisibleMapRect(polyline.boundingMapRect, animated: false)
-    }
-    
-    func initializeSubscriptions() {
-        
-        //Hook the record button up to a subscriber to enable/disable if we cannot locate the user
-        self.locationDataProvider.$hasLocatedUser.sink { hasLocatedUser in
-            self.recorderButton.isEnabled = hasLocatedUser
-            if hasLocatedUser {
-                self.zoomMapToLocation(location: CLLocation(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
-            }
-        }.store(in: &cancellables)
-        
-        //Checks to see if the Track Recorder is active so the UI can update accordingly
-        self.trackRecorder.$currentState.sink { state in
-            
-            var isActiveTrack = false
-            if let recorderTrack = self.trackRecorder.getCurrentTrack() {
-                isActiveTrack = self.trackDataProvider.isCurrentActiveTrack(track1: self.track, track2: recorderTrack)
-            }
-            
-            if state == .recording && isActiveTrack {
-                self.configureView(for: .activeTrack)
-            }else if !isActiveTrack, let points = self.track.points, points.count == 0 {
-                self.configureView(for: .newTrack)
-            }else{
-                self.configureView(for: .inactiveTrack)
-            }
-            
-        }.store(in: &cancellables)
-        
-        //Checks the location data provider to see if we have permission to access the users location
-        self.locationDataProvider.permissionPublisher.sink { granted in
-            if granted {
-                self.locationDataProvider.startTrackingLocation()
-            }else{
-                self.displayPermissionError()
-            }
-        }.store(in: &cancellables)
-        
-        self.locationDataProvider.locationPublisher.sink { completion in
-            switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("Error: \(error)")
-                    self.displayLocationError()
-            }
-        } receiveValue: { location in
-            
-            if self.shouldTrackUserLocation {
-                self.updateUserLocation(location: location)
-            }
-            
-            if self.shouldUpdatePolyline {
-                guard let track = self.trackRecorder.getCurrentTrack() else{
-                    return
-                }
-                
-                self.addTrackOverlay(for: track)
-                
-            }
-            
-        }.store(in: &cancellables)
-        
     }
     
     ///Configures the mapView when the view loads
@@ -261,26 +197,6 @@ private extension TrackDetailViewController {
         self.present(alertView, animated: true, completion: nil)
     }
     
-    @IBAction func recorderButtonHandler(sender:UIButton) {
-        //Change the status of the isRecording flag. This is a published var to the subscribers
-        //in this class can pick up on its changes
-        switch self.trackRecorder.currentState {
-        case .paused, .stopped:
-            self.trackRecorder.setCurrentTrack(track: self.track)
-            self.trackRecorder.currentState = .recording
-        case .recording:
-            
-            //Are we starting a new recoridng or simeply pausing the existing one?
-            if let currentTrack = self.trackRecorder.getCurrentTrack(), currentTrack.id != self.track.id {
-                self.displayExistingTrackWarning()
-            }else{
-                self.trackRecorder.currentState = .paused
-            }
-            
-        }
-
-    }
-    
     func displayExistingTrackWarning() {
         let alertController = UIAlertController(title: "Already recording".localized, message: "You are already recording a track. Starting a new one will stop the existing recording. Do you wish to continue?", preferredStyle: .alert)
         
@@ -293,7 +209,89 @@ private extension TrackDetailViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func initializeSubscriptions() {
+        
+        self.initializePermissionSubscription()
+        self.initializeLocationUpdatesSubscriptions()
+        self.initializeStateSubscription()
+        
+    }
+    
+    func initializeLocationUpdatesSubscriptions() {
+        
+        //Hook the record button up to a subscriber to enable/disable if we cannot locate the user
+        self.locationDataProvider.$hasLocatedUser.sink { hasLocatedUser in
+            //self.recorderButton.isEnabled = hasLocatedUser
+            if hasLocatedUser {
+                self.zoomMapToLocation(location: CLLocation(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude))
+            }
+        }.store(in: &cancellables)
+        
+        self.locationDataProvider.locationPublisher.sink { completion in
+            switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error: \(error)")
+                    self.displayLocationError()
+            }
+        } receiveValue: { location in
+            
+            if self.shouldTrackUserLocation {
+                self.updateUserLocation(location: location)
+            }
+            
+            if self.shouldUpdatePolyline {
+                guard let track = self.trackRecorder.getCurrentTrack() else{
+                    return
+                }
+                
+                self.addTrackOverlay(for: track)
+                
+            }
+            
+        }.store(in: &cancellables)
+    
+    }
+    
+    func initializeStateSubscription() {
+        
+        //Checks to see if the Track Recorder is active so the UI can update accordingly
+        self.trackRecorder.$currentState.sink { state in
+            
+            var isActiveTrack = false
+            if let recorderTrack = self.trackRecorder.getCurrentTrack() {
+                isActiveTrack = self.trackDataProvider.isCurrentActiveTrack(track1: self.track, track2: recorderTrack)
+            }
+            
+            if state == .recording && isActiveTrack {
+                self.configureView(for: .activeTrack)
+            }else if !isActiveTrack, let points = self.track.points, points.count == 0 {
+                self.configureView(for: .newTrack)
+            }else{
+                self.configureView(for: .inactiveTrack)
+            }
+            
+        }.store(in: &cancellables)
+        
+    }
+    
+    func initializePermissionSubscription() {
+        
+        
+        //Checks the location data provider to see if we have permission to access the users location
+        self.locationDataProvider.permissionPublisher.sink { granted in
+            if granted {
+                self.locationDataProvider.startTrackingLocation()
+            }else{
+                self.displayPermissionError()
+            }
+        }.store(in: &cancellables)
+        
+    }
+    
 }
+
 
 extension TrackDetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -323,4 +321,26 @@ extension TrackDetailViewController: UIGestureRecognizerDelegate {
     @objc func mapViewWasPinched(sender:MKMapView) {
         self.shouldTrackUserLocation = false
     }
+}
+
+extension TrackDetailViewController: TrackRecorderHUDViewControllerDelegate {
+    
+    func recorderDidStart() {
+        
+        self.trackRecorder.setCurrentTrack(track: self.track)
+        self.trackRecorder.currentState = .recording
+    
+    }
+    
+    func recorderDidStop() {
+        
+        //Are we starting a new recoridng or simeply pausing the existing one?
+        if let currentTrack = self.trackRecorder.getCurrentTrack(), currentTrack.id != self.track.id {
+            self.displayExistingTrackWarning()
+        }else{
+            self.trackRecorder.currentState = .paused
+        }
+        
+    }
+    
 }
