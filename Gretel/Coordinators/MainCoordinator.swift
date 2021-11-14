@@ -60,19 +60,23 @@ class MainCoordinator:NSObject, Coordinator, UINavigationControllerDelegate {
 extension MainCoordinator {
     
     func displayTrackList() {
+        
+        let trackListViewModel = TrackListViewModel(trackDataProvider: self.trackDataProvider,
+                                                    trackRecorder: self.trackRecorder,
+                                                    fetchedResultsController: self.trackDataProvider.trackListResultsController())
+        
         let vc = TrackListViewController.instantiate()
         vc.coordinator = self
-        vc.trackRecorder = self.trackRecorder
-        vc.trackDataProvider = self.trackDataProvider
+        vc.viewModel = trackListViewModel
         self.navigationController.pushViewController(vc, animated: false)
     }
     
-    func displayTrackDetail(track:Track?) {
+    func displayTrackDetail(track:Track) {
+        
+        let viewModel = TrackDetailViewModel(track: track)
         let vc = TrackDetailViewController.instantiate()
-        vc.track = track
-        vc.trackRecorder = self.trackRecorder
-        vc.trackDataProvider = self.trackDataProvider
-        vc.locationDataProvider = self.locationDataProvider
+        vc.viewModel = viewModel
+        
         self.navigationController.pushViewController(vc, animated: true)
     }
     

@@ -17,6 +17,9 @@ class GretelTests: XCTestCase {
     var trackDataProvider:TrackDataProvider!
     var trackRecorder:TrackRecorder!
     
+    let baseLat = 36.595104
+    let baseLon = -82.188744
+    
     var cancellables:[AnyCancellable] = []
     var trackID = UUID()
 
@@ -106,14 +109,11 @@ class GretelTests: XCTestCase {
         let date = Date()
         let track = self.trackDataProvider.createNewTrack(name: "Track loaded by ID", startDate:date)
         
-        let baseLat = 36.595104
-        let baseLon = -82.188744
-        
         let numberOfPoints = 10
         
         let count = 1...numberOfPoints
         for _ in count {
-            self.trackDataProvider.add(location: self.generateRandomLocation(lat: baseLat, lng: baseLon), to: track!)
+            self.trackDataProvider.add(location: self.generateRandomLocation(lat: self.baseLat, lng: self.baseLon), to: track!)
         }
         
         XCTAssertNotNil(track)
@@ -138,8 +138,6 @@ class GretelTests: XCTestCase {
         
         let date = Date()
         let track = self.trackDataProvider.createNewTrack(name: "Track loaded by ID", startDate:date)
-        let baseLat = 36.595104
-        let baseLon = -82.188744
         let numberOfPoints = 10
         let delay:UInt32 = 1
         
@@ -147,7 +145,7 @@ class GretelTests: XCTestCase {
         
         let count = 1...numberOfPoints
         for number in count {
-            self.trackDataProvider.add(location: self.generateRandomLocation(lat: baseLat, lng: baseLon), to: track!)
+            self.trackDataProvider.add(location: self.generateRandomLocation(lat: self.baseLat, lng: self.baseLon), to: track!)
             
             if number == numberOfPoints {
                 expectation.fulfill()
@@ -208,6 +206,8 @@ class GretelTests: XCTestCase {
         
     }
 
+    
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
@@ -216,30 +216,6 @@ class GretelTests: XCTestCase {
     }
     
 }
-
-//View Controller tests
-extension GretelTests {
-    
-    func testTrackListContainsCorrectRowCount() {
-        
-        
-//        let numberOfPoints = 20
-//        let count = 1...numberOfPoints
-//        for _ in count {
-//            
-//            let trackOne = self.trackDataProvider.createNewTrack(name: "Track One", startDate: Date())
-//            
-//        }
-//        
-//        let viewController = TrackListViewController.instantiate()
-        
-        
-        
-        
-    }
-    
-}
-
 
 extension GretelTests {
     

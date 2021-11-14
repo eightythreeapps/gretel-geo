@@ -44,7 +44,9 @@ extension BottomSheet where Self:UIViewController {
     func displayBottomSheetClosed() {
         
         let frame = self.view.frame
-        let yComponent = CGFloat(400.0)
+    
+        //Figure this out for flexible screen sizes
+        let yComponent = CGFloat(700.0)
         self.view.frame = CGRect(x: 0, y: yComponent, width: frame.width, height: frame.height)
         
     }

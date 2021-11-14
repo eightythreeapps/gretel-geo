@@ -13,98 +13,48 @@ class TrackListViewController: UIViewController, Storyboarded {
     
     //Dependencies
     public var coordinator:MainCoordinator!
-    public var trackDataProvider:TrackDataProvider!
-    public var trackRecorder:TrackRecorder!
-    
-    private var fetchedResultsController:NSFetchedResultsController<Track>!
+    public var viewModel:TrackListViewModel!
     
     @IBOutlet var tableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Track list"
+        self.title = "Track list".localized
         
         let startTrackButton = UIBarButtonItem(systemItem: .add)
         startTrackButton.target = self
         startTrackButton.action = #selector(startButtonHandler(sender:))
         
         self.navigationItem.rightBarButtonItems = [startTrackButton]
+        self.tableView.dataSource = self.viewModel
+        self.tableView.delegate = self
         
-        self.fetchedResultsController = self.trackDataProvider.trackListResultsController()
-        self.fetchedResultsController.delegate = self
+        self.viewModel.fetchedResultsController.delegate = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        do {
-            try self.fetchedResultsController.performFetch()
-        } catch {
-            print(error)
-        }
-        
+        self.viewModel.fetchData()
     }
     
 }
 
-extension TrackListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let track = self.fetchedResultsController.object(at: indexPath)
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = track.name
-        cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
-        
-        if let activeTrack = self.trackRecorder.getCurrentTrack() {
-            if track.id == activeTrack.id {
-                cell.backgroundColor = .green
-            }else{
-                cell.backgroundColor = .white
-            }
-        }else{
-            cell.backgroundColor = .white
-        }
-        
-        return cell
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if let sections = fetchedResultsController.sections {
-            return sections.count
-        }
-        
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        if let sections = fetchedResultsController.sections {
-            let currentSection = sections[section]
-            return currentSection.numberOfObjects
-        }
-        
-        return 0
-        
-    }
+extension TrackListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let track = self.fetchedResultsController.object(at: indexPath)
+        let track = self.viewModel.track(forIndexPath: indexPath)
         self.coordinator.displayTrackDetail(track: track)
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        guard let sections = self.fetchedResultsController.sections else {
-            return ""
-        }
-        
-        let sectionInfo = sections[section]
-        return sectionInfo.name
+}
+
+private extension TrackListViewController {
+    
+    @objc func startButtonHandler(sender:UIBarButtonItem) {
+        //self.coordinator.displayTrackDetail(track: nil)
     }
     
 }
@@ -121,10 +71,7 @@ extension TrackListViewController: NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            let track = self.fetchedResultsController.object(at: indexPath)
-            self.trackDataProvider.deleteTrack(track: track)
-            
+            self.viewModel.deleteObject(at: indexPath)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
@@ -163,14 +110,6 @@ extension TrackListViewController: NSFetchedResultsControllerDelegate {
             fatalError()
         }
     
-    }
-    
-}
-
-private extension TrackListViewController {
-    
-    @objc func startButtonHandler(sender:UIBarButtonItem) {
-        self.coordinator.displayTrackDetail(track: nil)
     }
     
 }

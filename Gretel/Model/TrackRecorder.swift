@@ -67,8 +67,7 @@ class TrackRecorder {
         }else{
             self.beginRecording(track: track)
         }
-        
-        
+
     }
     
     func stopRecordingTrack() {
