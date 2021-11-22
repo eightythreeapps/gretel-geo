@@ -14,15 +14,12 @@ class TrackDetailViewController: UIViewController, Storyboarded, BottomSheetHost
     
     var viewModel:TrackDetailViewModel!
     var trackDashboardViewContoller:TrackDashboardViewController!
+    var coordinator:MainCoordinator!
     
     override func viewDidLoad() {
         
-        let trackDashboardViewModel = TrackDashboardViewModel(dashboardItems: self.viewModel.dashboardItems())
-        
-        self.trackDashboardViewContoller = TrackDashboardViewController.instantiate()
-        self.trackDashboardViewContoller.viewModel = trackDashboardViewModel
-     
-        self.addBottomSheetViewController(viewController: self.trackDashboardViewContoller)
+        let dashboardController = self.coordinator.displayTrackDashboard(dashboardItems: self.viewModel.dashboardItems())
+        self.addBottomSheetViewController(viewController: dashboardController)
         
     }
     

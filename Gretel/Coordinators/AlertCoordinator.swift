@@ -7,8 +7,6 @@
 
 import UIKit
 
-class AlertPresenter {
-    
-    
+class AlertFactory {
     
 }

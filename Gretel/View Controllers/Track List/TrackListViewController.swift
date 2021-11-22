@@ -9,13 +9,14 @@ import UIKit
 import CoreData
 import Combine
 
-class TrackListViewController: UIViewController, Storyboarded {
+class TrackListViewController: UIViewController, Storyboarded, ParentViewController {
     
     //Dependencies
     public var coordinator:MainCoordinator!
     public var viewModel:TrackListViewModel!
     
     @IBOutlet var tableView:UITableView!
+    @IBOutlet var containerView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +32,25 @@ class TrackListViewController: UIViewController, Storyboarded {
         self.tableView.delegate = self
         
         self.viewModel.fetchedResultsController.delegate = self
-        
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Check how this can fit better with the Coordinator pattern
+        let trackDashboard = TrackDashboardMiniViewController.instantiate()
+        trackDashboard.viewModel = TrackDashboardMiniViewModel()
+        self.add(viewController: trackDashboard)
+        
         self.tableView.reloadData()
         self.viewModel.fetchData()
+        
+        
+    
     }
     
+
 }
 
 extension TrackListViewController: UITableViewDelegate {

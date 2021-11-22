@@ -8,10 +8,10 @@
 import Foundation
 import Combine
 
-enum TrackRecorderStatus {
+enum RecorderState {
+    case stopped
     case paused
     case recording
-    case stopped
 }
 
 class TrackRecorder {
@@ -20,27 +20,31 @@ class TrackRecorder {
     private var locationDataProvider:LocationDataProvider!
     private var cancellables:[AnyCancellable] = []
     private var track:Track?
-    
-    @Published var currentState:TrackRecorderStatus = .stopped
+   
+    @Published var currentState:RecorderState = .stopped
     
     required init(trackDataProvider:TrackDataProvider, locationDataProvider:LocationDataProvider) {
         self.trackDataProvider = trackDataProvider
         self.locationDataProvider = locationDataProvider
-        
         self.initializeSubscribers()
     }
     
-    private func initializeSubscribers() {
+    func startRecording(track:Track){
+        self.track = track
+    }
+    
+    func stopRecording() {
         
-        self.$currentState.sink { state in
-            
-            if let track = self.track, state == .recording  {
-                self.startRecordingTrack(track: track)
-            }else{
-                self.stopRecordingTrack()
-            }
-            
-        }.store(in: &cancellables)
+    }
+    
+    func currentTrack() -> Track? {
+        return self.track
+    }
+}
+
+private extension TrackRecorder {
+    
+    func initializeSubscribers() {
         
         self.locationDataProvider.locationPublisher.sink { completion in
             switch completion {
@@ -59,41 +63,4 @@ class TrackRecorder {
         
     }
     
-    func startRecordingTrack(track:Track) {
-        
-        if let currentTrack = self.getCurrentTrack(), self.currentState == .recording {
-            self.endRecording(track: currentTrack)
-            self.beginRecording(track: track)
-        }else{
-            self.beginRecording(track: track)
-        }
-
-    }
-    
-    func stopRecordingTrack() {
-        if let track = self.track {
-            self.endRecording(track: track)
-        }
-    }
-    
-    func getCurrentTrack() -> Track? {
-        return self.track
-    }
-
-    public func setCurrentTrack(track:Track) {
-        self.track = track
-    }
-    
-}
-
-private extension TrackRecorder {
-    
-    func beginRecording(track:Track) {
-        print("Starting track with ID: \(String(describing: track.id))")
-        self.track = track
-    }
-    
-    func endRecording(track:Track) {
-        print("Stopping track \(String(describing: track.id))")
-    }
 }

@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let locationDataProvider = LocationDataProvider(locationManager: locationManager,
                                                         locationPublisher: PassthroughSubject<CLLocation, Error>(),
-                                                        permissionPublisher: PassthroughSubject<Bool, Never>(),
                                                         headingPublisher: PassthroughSubject<CLHeading, Error>())
         
         let trackDataProvider = TrackDataProvider(context: context)
@@ -58,8 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-        
-        self.trackRecorder.stopRecordingTrack()
+        self.trackRecorder.stopRecording()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

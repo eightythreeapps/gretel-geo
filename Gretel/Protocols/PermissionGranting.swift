@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PermissionGranting {
-    
+        
     func permissionGranted()
     func permissionDenied()
     

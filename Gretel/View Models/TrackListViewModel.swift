@@ -40,8 +40,10 @@ class TrackListViewModel: NSObject  {
     }
     
     func track(forIndexPath indexPath:IndexPath) -> Track {
+        
         let track = self.fetchedResultsController.object(at: indexPath)
         return track
+        
     }
     
 }
@@ -85,7 +87,7 @@ extension TrackListViewModel: UITableViewDataSource {
         cell.textLabel?.text = track.name
         cell.detailTextLabel?.text = "\(String(describing: track.dateStarted))"
         
-        if let activeTrack = self.trackRecorder.getCurrentTrack() {
+        if let activeTrack = self.trackRecorder.currentTrack() {
             if track.id == activeTrack.id {
                 cell.backgroundColor = .green
             }else{

@@ -9,13 +9,18 @@ import UIKit
 import MapKit
 import Combine
 
-enum RecorderState {
+enum RecorderViewState {
     case newTrack
     case activeTrack
     case inactiveTrack
 }
 
-class TrackRecorderViewController: UIViewController, Storyboarded, BottomSheetHost {
+class TrackRecorderViewController: UIViewController, Storyboarded {
+    
+    public var shouldTrackUserLocation = true
+    public var shouldUpdatePolyline = false
+    public var isEmptyTrack:Bool = true
+    public var isInitialLoad = true
   
     ///Set up a recognizer to capture the user panning the map view. This is works in conjunction with the var `shouldTrackUserLocation`
     ///to make sure that the user can pan the map without the location update re-centering the view on the users current position
@@ -43,42 +48,25 @@ class TrackRecorderViewController: UIViewController, Storyboarded, BottomSheetHo
         return recognizer
     }()
     
-    public var viewModel:TrackDetailViewModel!
+    public var viewModel:TrackRecorderViewModel!
     
     ///Subscription store
     private var cancellables:[AnyCancellable] = []
     
     //Outlets
     @IBOutlet private var mapView:MKMapView!
-    
-    var trackRecorderViewController:TrackRecorderHUDViewController!
-    
+        
     //Injectables
     var track:TrackDetailViewModel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
-        self.title = self.track.name()
-        
-        self.trackRecorderViewController = TrackRecorderHUDViewController.instantiate()
-        self.trackRecorderViewController.delegate = self
-        //self.trackRecorderViewController.trackRecorder = self.viewModel.trackRecorder
-        self.addBottomSheetViewController(viewController: self.trackRecorderViewController)
-        
         self.initializeSubscriptions()
         self.configureMapView()
         
-        //Check this
-//        self.viewModel.locationDataProvider.requestAccessToUsersLocation()
-//        self.viewModel.initializeTrack()
-       
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-//        if self.viewModel.currentViewState == .newTrack {
-//            //self.trackDataProvider.deleteTrack(track: self.track)
-//        }
+        //self.viewModel.locationDataProvider.requestAccessToUsersLocation()
+        
     }
     
     
@@ -154,6 +142,7 @@ private extension TrackRecorderViewController {
     }
     
     func zoomMapToLocation(location:CLLocation) {
+        
         let zoomRegionMeters = 200.0
         let coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region = self.mapView.regionThatFits(MKCoordinateRegion(center: coordinate,
@@ -194,7 +183,7 @@ private extension TrackRecorderViewController {
     
     func initializeSubscriptions() {
         
-        self.initializePermissionSubscription()
+        //self.initializePermissionSubscription()
         self.initializeLocationUpdatesSubscriptions()
         self.initializeStateSubscription()
         
@@ -259,19 +248,7 @@ private extension TrackRecorderViewController {
         
     }
     
-    func initializePermissionSubscription() {
-        
-        
-//        //Checks the location data provider to see if we have permission to access the users location
-//        self.viewModel.locationDataProvider.permissionPublisher.sink { granted in
-//            if granted {
-//                self.viewModel.locationDataProvider.startTrackingLocation()
-//            }else{
-//                self.displayPermissionError()
-//            }
-//        }.store(in: &cancellables)
-        
-    }
+    
     
 }
 
@@ -304,26 +281,4 @@ extension TrackRecorderViewController: UIGestureRecognizerDelegate {
     @objc func mapViewWasPinched(sender:MKMapView) {
         //self.viewModel.shouldTrackUserLocation = false
     }
-}
-
-extension TrackRecorderViewController: TrackRecorderHUDViewControllerDelegate {
-    
-    func recorderDidStart() {
-        
-        //self.trackRecorder.setCurrentTrack(track: self.track)
-        //self.viewModel.trackRecorder.currentState = .recording
-    
-    }
-    
-    func recorderDidStop() {
-        
-//        //Are we starting a new recoridng or simeply pausing the existing one?
-//        if let currentTrack = self.trackRecorder.getCurrentTrack(), currentTrack.id != self.track.id {
-//            self.displayExistingTrackWarning()
-//        }else{
-//            self.viewModel.trackRecorder.currentState = .paused
-//        }
-        
-    }
-    
 }

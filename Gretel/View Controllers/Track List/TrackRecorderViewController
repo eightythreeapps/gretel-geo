@@ -12,7 +12,7 @@ protocol TrackRecorderHUDViewControllerDelegate {
     func recorderDidStop()
 }
 
-class TrackRecorderHUDViewController: BottomSheetViewController {
+class TrackRecorderViewController {
 
     var trackRecorder:TrackRecorder!
     var delegate:TrackRecorderHUDViewControllerDelegate!
@@ -25,18 +25,18 @@ class TrackRecorderHUDViewController: BottomSheetViewController {
         // Do any additional setup after loading the view.
     }
     
-    func configure(for state:RecorderState) {
-       
-        switch state {
-        case .newTrack:
-            self.recorderButton.setTitle("Start".localized, for: .normal)
-        case .activeTrack:
-            self.recorderButton.setTitle("Stop".localized, for: .normal)
-        case .inactiveTrack:
-            self.recorderButton.setTitle("Resume".localized, for: .normal)
-        }
-        
-    }
+//    func configure(for state:RecorderState) {
+//       
+//        switch state {
+//        case .newTrack:
+//            self.recorderButton.setTitle("Start".localized, for: .normal)
+//        case .activeTrack:
+//            self.recorderButton.setTitle("Stop".localized, for: .normal)
+//        case .inactiveTrack:
+//            self.recorderButton.setTitle("Resume".localized, for: .normal)
+//        }
+//        
+//    }
     
     @IBAction func recorderButtonHandler(sender:UIButton){
         

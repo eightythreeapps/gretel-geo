@@ -9,24 +9,24 @@ import UIKit
 
 class TrackDashboardViewModel:NSObject, UICollectionViewDataSource {
     
-    var dashboardItems:TrackDetailDashboardItems!
+    var dashboardItems:TrackDetailDashboardItems?
     
-    required init(dashboardItems:TrackDetailDashboardItems) {
+    required init(dashboardItems:TrackDetailDashboardItems?) {
         self.dashboardItems = dashboardItems
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dashboardItems.count
+        return self.dashboardItems?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackDashboardBasicCell.CellIdentifier, for: indexPath) as! TrackDashboardBasicCell
         
-        let item = self.dashboardItems[indexPath.row]
+        let item = self.dashboardItems?[indexPath.row]
         
-        cell.titleLabel.text = item.title
-        cell.valueLabel.text = "\(item.value)"
+        cell.titleLabel.text = item?.title
+        cell.valueLabel.text = "\(item?.value ?? "")"
         
         return cell
         

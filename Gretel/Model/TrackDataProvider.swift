@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftDate
+import CoreLocation
 
 typealias Tracks = [Track]
 typealias TrackPoints = [TrackPoint]

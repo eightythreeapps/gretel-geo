@@ -7,28 +7,42 @@
 
 import Foundation
 import UIKit
+import Combine
+
+class LocationPermissionViewModel:ObservableObject {
+    
+    var locationDataProvider:LocationDataProvider!
+    var permissionsDataProvider:PermissionsDataProvider!
+        
+    required init(locationDataProvider:LocationDataProvider, permissionsDataProvider:PermissionsDataProvider) {
+        self.locationDataProvider = locationDataProvider
+        self.permissionsDataProvider = permissionsDataProvider
+    }
+    
+    func requestAccessToUserPermission() {
+        self.permissionsDataProvider.requestAccessToUsersLocation()
+    }
+
+}
 
 
 class LocationPermissionViewController: UIViewController, Storyboarded, PermissionGranting {
     
-    var coordinator:AppPermissionsCoordinator?
-    var locationDataProvider:LocationDataProvider!
+    var permissionDataProvider: PermissionsDataProvider!
+    var coordinator:AppPermissionsCoordinator!
+    var viewModel:LocationPermissionViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tapHandler(_ sender: Any) {
-        
-       
+        self.viewModel.requestAccessToUserPermission()
     }
     
     func permissionGranted() {
-        self.coordinator?.displayHealthPermissionsViewController()
-    }
-    
-    func permissionDenied() {
         
     }
+    
+    
 }
